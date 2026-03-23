@@ -367,9 +367,24 @@ function setFeedback(element, message, tone = "neutral") {
   element.dataset.tone = tone;
 }
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((email || "").trim());
+}
+
+function updateVerifyButtonState() {
+  if (!dom.verifyBtn) return;
+
+  const email = dom.emailInput ? dom.emailInput.value.trim() : "";
+  const hasValidEmail = isValidEmail(email) || Boolean(currentUser && currentUser.email);
+  const isVerifiedUser = Boolean(currentUser && currentUser.emailVerified);
+
+  dom.verifyBtn.disabled = !hasValidEmail || isVerifiedUser;
+}
+
 function openModal() {
   dom.modal.classList.add("is-open");
   dom.modal.setAttribute("aria-hidden", "false");
+  updateVerifyButtonState();
 }
 
 function closeModal() {
@@ -415,6 +430,7 @@ function updateUiForUser(user) {
     dom.authStateTitle.textContent = t("auth_state_idle_title");
     dom.authStateText.textContent = t("auth_state_idle_text");
     dom.authStatusBadge.textContent = t("auth_status_active");
+    updateVerifyButtonState();
     return;
   }
 
@@ -424,6 +440,7 @@ function updateUiForUser(user) {
     ? t("auth_state_verified_text", { email: user.email })
     : t("auth_state_pending_text", { email: user.email });
   dom.authStatusBadge.textContent = user.emailVerified ? t("auth_status_verified") : t("auth_status_pending");
+  updateVerifyButtonState();
 }
 
 function getSession() {
@@ -452,6 +469,7 @@ async function handleRegister(event) {
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || "Erro ao criar conta.");
     setFeedback(dom.authFeedback, data.message || t("register_success"), "success");
+    updateVerifyButtonState();
   } catch (error) {
     setFeedback(dom.authFeedback, t("register_error", { message: error.message }), "error");
   }
@@ -485,6 +503,12 @@ async function handleLogin() {
 }
 
 async function handleVerify() {
+  updateVerifyButtonState();
+  if (dom.verifyBtn.disabled) {
+    setFeedback(dom.authFeedback, t("verify_empty"), "error");
+    return;
+  }
+
   const email = dom.emailInput.value.trim() || (currentUser && currentUser.email);
   if (!email) {
     setFeedback(dom.authFeedback, t("verify_empty"), "error");
@@ -539,6 +563,7 @@ function setupEvents() {
   dom.verifyBtn.addEventListener("click", handleVerify);
   dom.logoutBtn.addEventListener("click", handleLogout);
   dom.waitlistForm.addEventListener("submit", handleWaitlistSubmit);
+  dom.emailInput.addEventListener("input", updateVerifyButtonState);
 }
 
 async function restoreSession() {
@@ -574,3 +599,4 @@ setupEvents();
 refreshWaitlistUi();
 applyTranslations();
 restoreSession();
+updateVerifyButtonState();
