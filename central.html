@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Eleventh Labs Central | v1</title>
+  <meta name="description" content="Central inicial da The Eleventh Labs com overview do projeto, auth, backlog e notas locais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="central.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="gradient-orb one"></div>
+  <div class="gradient-orb two"></div>
+
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.png" alt="The Eleventh Labs logo" class="sidebar-logo" />
+        <div>
+          <strong>The Eleventh Labs</strong>
+          <span>Central v1 by The Abyss</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="#overview">Overview</a>
+        <a class="sidebar-link" href="#workspace">Workspace</a>
+        <a class="sidebar-link" href="#backlog">Backlog</a>
+        <a class="sidebar-link" href="#notes">Notas</a>
+      </nav>
+
+      <div class="sidebar-panel">
+        <span class="sidebar-label">Modo</span>
+        <strong id="centralAuthMode">Local</strong>
+        <p id="centralAuthHint">Usando sessao local para teste.</p>
+      </div>
+
+      <div class="sidebar-panel">
+        <span class="sidebar-label">Atalho</span>
+        <a class="sidebar-cta" href="index.html">Voltar para a landing</a>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Central</p>
+          <h1>Uma area inicial para dar corpo ao projeto</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="user-badge">
+            <span id="userStatusDot" class="status-dot"></span>
+            <div>
+              <strong id="centralUserLabel">Visitante</strong>
+              <span id="centralUserSub">Entre para desbloquear o fluxo completo</span>
+            </div>
+          </div>
+          <a class="ghost-btn" href="index.html#auth">Auth</a>
+          <button id="centralLogoutBtn" class="ghost-btn" type="button" disabled>Sair</button>
+        </div>
+      </header>
+
+      <section class="overview-grid" id="overview">
+        <article class="overview-card accent">
+          <span class="card-kicker">Projeto</span>
+          <h2>Base pronta para a proxima etapa</h2>
+          <p>Essa central nasce como uma primeira area viva do projeto: status, autenticacao, notas e backlog em um lugar so.</p>
+        </article>
+        <article class="overview-card">
+          <span class="card-kicker">Usuario</span>
+          <strong id="centralUserEmail">Sem sessao ativa</strong>
+          <p id="centralVerificationText">Entre na landing para autenticar ou continue testando no modo local.</p>
+        </article>
+        <article class="overview-card">
+          <span class="card-kicker">Interesse</span>
+          <strong id="centralWaitlistCount">0 registros</strong>
+          <p>Pessoas salvas localmente pela waitlist da landing atual.</p>
+        </article>
+      </section>
+
+      <section class="workspace-grid" id="workspace">
+        <article class="panel panel-large">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Workspace</p>
+              <h2>Blocos de construcao da central</h2>
+            </div>
+          </div>
+          <div class="module-grid">
+            <article class="module-card">
+              <strong>Overview do projeto</strong>
+              <p>Uma leitura rapida do estado atual, modo de auth e status do usuario.</p>
+            </article>
+            <article class="module-card">
+              <strong>Backlog inicial</strong>
+              <p>Checklist local para organizar as proximas entregas da central.</p>
+            </article>
+            <article class="module-card">
+              <strong>Notas rapidas</strong>
+              <p>Espaco para registrar ideias enquanto o projeto ainda esta em exploracao.</p>
+            </article>
+            <article class="module-card">
+              <strong>Base auth</strong>
+              <p>Le a sessao atual e ja deixa o caminho preparado para area privada real.</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Readiness</p>
+              <h2>Pontos fortes agora</h2>
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li>Landing e central com mesma linguagem visual.</li>
+            <li>Auth local funcional e Firebase-ready.</li>
+            <li>Estado do projeto mais legivel.</li>
+            <li>Estrutura boa para virar dashboard depois.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel" id="backlog">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Backlog</p>
+              <h2>Prioridades imediatas</h2>
+            </div>
+          </div>
+          <div id="backlogList" class="checklist"></div>
+        </article>
+
+        <article class="panel" id="notes">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Notas</p>
+              <h2>Rascunhos do projeto</h2>
+            </div>
+          </div>
+          <form id="notesForm" class="notes-form">
+            <textarea id="notesInput" rows="5" placeholder="Anota uma ideia, ajuste de produto ou decisao de design..."></textarea>
+            <button class="primary-btn" type="submit">Salvar nota</button>
+          </form>
+          <div id="notesFeedback" class="feedback-box">Nenhuma nota salva ainda.</div>
+          <ul id="notesList" class="notes-list"></ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="central.js"></script>
+</body>
+</html>

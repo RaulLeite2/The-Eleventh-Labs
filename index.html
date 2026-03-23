@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Eleventh Labs | Projeto em evolucao pela The Abyss</title>
+  <meta name="description" content="The Eleventh Labs e um projeto em evolucao da The Abyss, com foco em produto, identidade visual, acesso antecipado e experimentacao real." />
+  <meta property="og:title" content="The Eleventh Labs" />
+  <meta property="og:description" content="Projeto em evolucao da The Abyss com foco em produto, estrutura e acesso antecipado." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="gradient-orb one"></div>
+  <div class="gradient-orb two"></div>
+
+  <header class="hero">
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <img src="logo.png" alt="The Eleventh Labs logo" class="brand-logo" />
+          <div class="brand-copy">
+            <span class="brand-main">The Eleventh Labs</span>
+            <small>by The Abyss</small>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a class="nav-pill" href="#sobre">Sobre</a>
+            <a class="nav-pill" href="#estrutura">Estrutura</a>
+            <a class="nav-pill" href="#roadmap">Roadmap</a>
+            <a class="nav-pill" href="#auth">Auth</a>
+            <a class="nav-pill" href="central.html">Central</a>
+            <a class="nav-pill" href="#faq">FAQ</a>
+          </div>
+          <button class="nav-auth-btn" type="button" data-auth-open>Acessar</button>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Projeto em evolucao com base profissional</p>
+          <div class="headline-row">
+            <h1>The Eleventh Labs esta sendo construida para sair do conceito e virar produto de verdade.</h1>
+            <img src="logo.png" alt="The Eleventh Labs" class="headline-logo" />
+          </div>
+          <p class="hero-subtitle">A proposta aqui nao e fingir que tudo ja esta pronto. E deixar a base certa: identidade forte, narrativa clara, auth pronto para acesso antecipado e estrutura de site que aguenta crescer sem parecer remendo.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#estrutura">Ver estrutura</a>
+            <a class="btn btn-secondary" href="central.html">Abrir central v1</a>
+            <button class="btn btn-secondary" type="button" data-auth-open>Entrar no acesso antecipado</button>
+          </div>
+
+          <div class="hero-metrics reveal-target">
+            <article class="hero-metric">
+              <strong>Landing fechada</strong>
+              <span>Mensagem, visual e seções pensadas para apresentar o projeto sem cara de rascunho.</span>
+            </article>
+            <article class="hero-metric">
+              <strong>Auth preparado</strong>
+              <span>Cadastro, login e verificacao prontos para testes locais e plugar Firebase depois.</span>
+            </article>
+            <article class="hero-metric">
+              <strong>Direcao clara</strong>
+              <span>Roadmap e estrutura para voce validar antes de subir para GitHub e Railway.</span>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal-target">
+          <div class="panel-status-row">
+            <span class="panel-chip">Status</span>
+            <span id="authStatusBadge" class="panel-chip panel-chip-soft">Modo local</span>
+          </div>
+
+          <h2>Estado atual do projeto</h2>
+          <ul class="project-pulse">
+            <li><strong>Agora</strong>: lapidando narrativa, visual e fluxo de entrada.</li>
+            <li><strong>Proxima fase</strong>: abrir acesso antecipado e medir interesse real.</li>
+            <li><strong>Assinatura</strong>: projeto da The Abyss, com identidade propria.</li>
+          </ul>
+
+          <div class="mini-console">
+            <span class="mini-console-label">base pronta</span>
+            <code>landing + auth local + firebase ready + deploy futuro</code>
+          </div>
+
+          <div class="panel-divider"></div>
+
+          <div class="panel-note">
+            <strong>Decisao certa agora</strong>
+            <p>Testar localmente, ajustar o produto e so depois versionar, publicar e colocar em producao.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="sobre">
+      <p class="section-kicker">Sobre</p>
+      <h2>Uma base pensada para durar mais que uma landing bonita</h2>
+      <p class="section-sub">Esse site serve como ponto de posicionamento, experimento de produto e porta de entrada para acesso antecipado. A ideia e deixar o projeto com aparencia forte, mas tambem com funcao real desde cedo.</p>
+    </section>
+
+    <section class="section container cards-section" id="estrutura">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Estrutura</p>
+          <h2>O que o site precisava para parecer profissional agora</h2>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal-target">
+          <h3>Posicionamento claro</h3>
+          <p>Explicar o que e a The Eleventh Labs sem parecer pagina corporativa pesada nem prototipo solto demais.</p>
+        </article>
+        <article class="card reveal-target">
+          <h3>Entrada real de usuario</h3>
+          <p>Permitir cadastro, login e controle de acesso antecipado com base que depois vira auth de producao.</p>
+        </article>
+        <article class="card reveal-target">
+          <h3>Camada de validacao</h3>
+          <p>Capturar interesse, testar mensagens e preparar o terreno para quando a central comecar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container showcase-section">
+      <div class="showcase-grid">
+        <article class="showcase-card reveal-target">
+          <p class="section-kicker">Produto</p>
+          <h2>Uma home que ja conversa com o futuro da central</h2>
+          <p>O site agora funciona como introducao do projeto, camada de autenticacao e ponte para o proximo passo: uma central mais util, organizada e viva.</p>
+          <div class="stack-list">
+            <span>Hero forte</span>
+            <span>Roadmap</span>
+            <span>Auth</span>
+            <span>Waitlist</span>
+          </div>
+          <div class="showcase-actions">
+            <a class="btn btn-primary" href="central.html">Entrar na central</a>
+          </div>
+        </article>
+
+        <article class="showcase-card showcase-card-alt reveal-target">
+          <p class="section-kicker">Execucao</p>
+          <h2>Do local para producao sem reescrever tudo</h2>
+          <p>O fluxo esta montado para voce testar localmente agora, validar o feeling do projeto e depois conectar Firebase e deploy com o minimo de retrabalho.</p>
+          <ol class="ordered-notes">
+            <li>Lapidar a experiencia local.</li>
+            <li>Ativar Firebase Auth para verificacao real por email.</li>
+            <li>Subir para GitHub quando o projeto estiver do jeito certo.</li>
+            <li>Fazer deploy quando fizer sentido abrir.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container roadmap-section" id="roadmap">
+      <p class="section-kicker">Roadmap</p>
+      <h2>Etapas naturais para a The Eleventh Labs crescer bem</h2>
+      <div class="roadmap-grid">
+        <article class="roadmap-item reveal-target">
+          <span class="roadmap-step">01</span>
+          <h3>Base e direcao</h3>
+          <p>Fechar linguagem, visual, proposta e sensacao geral do projeto sem pressa de publicar cedo demais.</p>
+        </article>
+        <article class="roadmap-item reveal-target">
+          <span class="roadmap-step">02</span>
+          <h3>Acesso antecipado</h3>
+          <p>Usar auth e lista de interesse para entender quem quer acompanhar o projeto desde o inicio.</p>
+        </article>
+        <article class="roadmap-item reveal-target">
+          <span class="roadmap-step">03</span>
+          <h3>Central e produto vivo</h3>
+          <p>Depois da base pronta, abrir espaco para dashboard, central, areas privadas e MVPs reais.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container auth-section" id="auth">
+      <div class="auth-grid">
+        <article class="auth-card reveal-target">
+          <div class="auth-card-header">
+            <div>
+              <p class="section-kicker">Auth</p>
+              <h2>Acesso antecipado com modo local funcionando</h2>
+            </div>
+            <button class="btn btn-secondary auth-inline-btn" type="button" data-auth-open>Abrir auth</button>
+          </div>
+
+          <p class="section-sub auth-sub">Sem Firebase configurado, o site usa um modo local de teste para registrar e entrar com usuarios no navegador. Quando voce quiser validacao real por email, e so plugar as chaves do Firebase.</p>
+
+          <div class="auth-state-box">
+            <strong id="authStateTitle">Modo local ativo</strong>
+            <p id="authStateText">Voce ja consegue testar cadastro, login, sessao e status de verificacao localmente sem backend.</p>
+          </div>
+
+          <div class="auth-actions-row">
+            <button class="btn btn-primary" type="button" data-auth-open>Criar conta</button>
+            <button id="logoutBtn" class="btn btn-secondary" type="button" disabled>Sair</button>
+          </div>
+        </article>
+
+        <article class="auth-card auth-card-alt reveal-target">
+          <p class="section-kicker">Verificacao por email</p>
+          <h2>Sistema gratis que vale a pena usar</h2>
+          <p class="section-sub">Para verificacao por email sem pagar agora, o melhor caminho aqui e <strong>Firebase Authentication</strong> no plano Spark. Ele resolve email e senha, envio de verificacao, sessao e funciona bem com site estatico.</p>
+          <ul class="bullet-list">
+            <li>Gratis para comecar.</li>
+            <li>Bom para localhost e deploy simples.</li>
+            <li>Resolve verificacao real por email sem backend proprio.</li>
+            <li>Pode continuar servindo quando o projeto crescer.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container waitlist-section" id="interesse">
+      <div class="waitlist-grid">
+        <article class="waitlist-copy reveal-target">
+          <p class="section-kicker">Interesse</p>
+          <h2>Capturar quem quer acompanhar o projeto tambem faz parte da base</h2>
+          <p class="section-sub">Em vez de deixar a home so bonita, o site agora tambem pode registrar interesse localmente. Isso te ajuda a testar a experiencia de entrada antes de integrar um backend real.</p>
+          <div class="waitlist-stats">
+            <div class="waitlist-stat">
+              <strong id="waitlistCount">0</strong>
+              <span>interesses salvos localmente</span>
+            </div>
+            <div class="waitlist-stat">
+              <strong id="authModeLabel">Local</strong>
+              <span>modo atual da autenticacao</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="waitlist-card reveal-target">
+          <form id="waitlistForm" class="waitlist-form">
+            <label>
+              <span>Nome</span>
+              <input id="waitlistName" name="name" type="text" placeholder="Seu nome" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input id="waitlistEmail" name="email" type="email" placeholder="voce@exemplo.com" required />
+            </label>
+            <label>
+              <span>O que mais te interessa?</span>
+              <select id="waitlistInterest" name="interest">
+                <option value="Identidade e produto">Identidade e produto</option>
+                <option value="Acesso antecipado">Acesso antecipado</option>
+                <option value="Central futura">Central futura</option>
+                <option value="Projetos da The Abyss">Projetos da The Abyss</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">Salvar interesse</button>
+          </form>
+          <div id="waitlistFeedback" class="waitlist-feedback">Nenhum interesse salvo ainda nesta sessao local.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container faq-section" id="faq">
+      <p class="section-kicker">FAQ</p>
+      <h2>Perguntas que fazem sentido antes da central existir</h2>
+      <div class="faq-grid">
+        <details class="faq-item reveal-target">
+          <summary>Esse site ja representa o projeto final?</summary>
+          <p>Nao. Ele representa uma base profissional para o projeto crescer direito, sem a pressa de publicar algo mal resolvido.</p>
+        </details>
+        <details class="faq-item reveal-target">
+          <summary>O auth ja funciona agora?</summary>
+          <p>Sim, em modo local para teste dentro do navegador. Para verificacao real por email, a recomendacao e usar Firebase Auth.</p>
+        </details>
+        <details class="faq-item reveal-target">
+          <summary>Vale subir isso agora para GitHub?</summary>
+          <p>So quando a base estiver do jeito certo para voce. No momento, testar localmente ainda e a melhor estrategia.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>The Eleventh Labs - projeto em evolucao da The Abyss.</span>
+  </footer>
+
+  <div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-auth-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+      <button class="modal-close" type="button" aria-label="Fechar" data-auth-close>×</button>
+      <p class="section-kicker">Acesso</p>
+      <h2 id="authModalTitle">Cadastro e login</h2>
+      <p class="modal-subtitle">Em modo local, o site salva usuarios no navegador para voce testar a experiencia. Com Firebase configurado, o mesmo fluxo passa a usar verificacao real por email.</p>
+
+      <form id="authForm" class="auth-form">
+        <label>
+          <span>Email</span>
+          <input id="emailInput" name="email" type="email" placeholder="voce@exemplo.com" required />
+        </label>
+        <label>
+          <span>Senha</span>
+          <input id="passwordInput" name="password" type="password" placeholder="Minimo de 6 caracteres" minlength="6" required />
+        </label>
+        <div class="form-actions">
+          <button id="registerBtn" class="btn btn-primary" type="submit">Criar conta</button>
+          <button id="loginBtn" class="btn btn-secondary" type="button">Entrar</button>
+        </div>
+        <div class="form-actions form-actions-secondary">
+          <button id="verifyBtn" class="btn btn-secondary" type="button" disabled>Verificar email</button>
+        </div>
+      </form>
+
+      <div id="authFeedback" class="auth-feedback">Preencha seu email e senha para testar o fluxo.</div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
