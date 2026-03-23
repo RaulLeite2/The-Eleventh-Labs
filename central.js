@@ -1,9 +1,7 @@
 const gateDiscordBtn = document.getElementById("gateDiscordBtn");
-
 if (gateDiscordBtn) {
   gateDiscordBtn.addEventListener("click", () => {
-    const next = "/central.html";
-    window.location.href = `${API_BASE_URL}/auth/discord/login?next=${encodeURIComponent(next)}`;
+    window.location.href = "https://discord.com/oauth2/authorize?client_id=1485651103763796029&response_type=code&redirect_uri=https%3A%2F%2Ftheabyssauth.up.railway.app%2Fauth%2Fdiscord%2Fcallback&scope=identify+email";
   });
 }
 
