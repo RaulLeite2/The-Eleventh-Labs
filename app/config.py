@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     resend_api_key: str | None = None
     resend_from_email: str | None = None
 
+    sendgrid_api_key: str | None = None
+    sendgrid_from_email: str | None = None
+
     smtp_host: str | None = None
     smtp_port: int = 587
     smtp_username: str | None = None
@@ -52,7 +55,7 @@ class Settings(BaseSettings):
     @classmethod
     def normalize_email_provider(cls, v: str | None) -> str:
         provider = (v or "auto").strip().lower()
-        if provider not in {"auto", "smtp", "resend"}:
+        if provider not in {"auto", "smtp", "resend", "sendgrid"}:
             return "auto"
         return provider
 

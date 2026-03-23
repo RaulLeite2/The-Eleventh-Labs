@@ -51,6 +51,59 @@ def _send_with_resend(to_email: str, verify_url: str) -> tuple[bool, str]:
         return False, "resend_network_error"
 
 
+def _send_with_sendgrid(to_email: str, verify_url: str) -> tuple[bool, str]:
+    if not settings.sendgrid_api_key or not settings.sendgrid_from_email:
+        return False, "sendgrid_not_configured"
+
+    payload = {
+        "personalizations": [{"to": [{"email": to_email}]}],
+        "from": {"email": settings.sendgrid_from_email},
+        "subject": "Verify your email - The Abyss",
+        "content": [
+            {
+                "type": "text/plain",
+                "value": (
+                    "Welcome to The Abyss.\n\n"
+                    f"Click this link to verify your email:\n{verify_url}\n\n"
+                    "If you did not request this, you can ignore this email."
+                ),
+            },
+            {
+                "type": "text/html",
+                "value": (
+                    "<p>Welcome to The Abyss.</p>"
+                    f'<p>Click this link to verify your email:<br><a href="{verify_url}">{verify_url}</a></p>'
+                    "<p>If you did not request this, you can ignore this email.</p>"
+                ),
+            },
+        ],
+    }
+
+    req = request.Request(
+        "https://api.sendgrid.com/v3/mail/send",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {settings.sendgrid_api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    try:
+        with request.urlopen(req, timeout=20) as response:
+            if 200 <= response.status < 300:
+                print(f"[AUTH][EMAIL_SENT][SENDGRID] Verification email sent to {to_email}")
+                return True, "sendgrid"
+            return False, f"sendgrid_http_{response.status}"
+    except error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="ignore")
+        print(f"[AUTH][EMAIL_ERROR][SENDGRID] HTTP {exc.code}: {body}")
+        return False, f"sendgrid_http_{exc.code}"
+    except Exception as exc:
+        print(f"[AUTH][EMAIL_ERROR][SENDGRID] {exc.__class__.__name__}: {exc}")
+        return False, "sendgrid_network_error"
+
+
 def _send_with_smtp(to_email: str, verify_url: str) -> tuple[bool, str]:
     if not all([settings.smtp_host, settings.smtp_username, settings.smtp_password, settings.smtp_from_email]):
         return False, "smtp_not_configured"
@@ -84,8 +137,16 @@ def _send_with_smtp(to_email: str, verify_url: str) -> tuple[bool, str]:
 
 
 def send_verification_email(to_email: str, verify_url: str) -> tuple[bool, str]:
-    # auto: try Resend first (HTTPS/443), then SMTP.
+    # auto: try SendGrid → Resend → SMTP
     provider = settings.email_provider
+
+    if provider in {"auto", "sendgrid"}:
+        sent, mode = _send_with_sendgrid(to_email, verify_url)
+        if sent:
+            return True, mode
+        if provider == "sendgrid":
+            print(f"[AUTH][EMAIL_FALLBACK] Verification URL for {to_email}: {verify_url}")
+            return False, mode
 
     if provider in {"auto", "resend"}:
         sent, mode = _send_with_resend(to_email, verify_url)
