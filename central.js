@@ -200,8 +200,7 @@ gateRegisterForm.addEventListener("submit", async (e) => {
 
     setFeedback(gateRegFeedback, data.message ?? "Conta criada. Verifique seu email antes de entrar.", "success");
     gateRegisterForm.reset();
-    // Switch to login tab after successful registration
-    setTimeout(() => activateTab("login"), 1800);
+    // Keep feedback visible so users can read delivery status.
   } catch {
     setFeedback(gateRegFeedback, "Erro de conexao. Verifique sua internet e tente novamente.");
   } finally {
