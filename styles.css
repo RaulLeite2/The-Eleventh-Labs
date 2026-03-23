@@ -446,6 +446,85 @@ nav {
   backdrop-filter: blur(16px);
 }
 
+.hero-preview {
+  background: linear-gradient(180deg, rgba(17, 15, 40, 0.92), rgba(21, 19, 46, 0.78));
+  border: 1px solid var(--glass-border);
+  border-radius: 26px;
+  padding: 1.35rem;
+  backdrop-filter: blur(16px);
+}
+
+.preview-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.preview-surface {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.preview-hero-card,
+.preview-card,
+.preview-stat {
+  background: rgba(11, 13, 32, 0.72);
+  border: 1px solid rgba(131, 185, 255, 0.18);
+  border-radius: 20px;
+}
+
+.preview-hero-card {
+  padding: 1.1rem;
+}
+
+.preview-eyebrow,
+.preview-card-label {
+  display: inline-flex;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-hot);
+}
+
+.preview-hero-card h2,
+.preview-card strong,
+.preview-stat strong {
+  display: block;
+}
+
+.preview-hero-card h2 {
+  margin: 0.55rem 0 0.7rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.08;
+}
+
+.preview-hero-card p,
+.preview-card p,
+.preview-stat span {
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.preview-grid,
+.preview-footer {
+  display: grid;
+  gap: 0.95rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.preview-card,
+.preview-stat {
+  padding: 1rem;
+}
+
+.preview-card strong,
+.preview-stat strong {
+  margin: 0.4rem 0 0.35rem;
+}
+
 .panel-status-row {
   display: flex;
   justify-content: space-between;
@@ -784,7 +863,9 @@ footer {
   .auth-grid,
   .waitlist-grid,
   .hero-metrics,
-  .waitlist-stats {
+  .waitlist-stats,
+  .preview-grid,
+  .preview-footer {
     grid-template-columns: 1fr;
   }
 
