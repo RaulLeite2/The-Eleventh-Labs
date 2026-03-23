@@ -149,6 +149,22 @@ nav {
   border-radius: 10px;
 }
 
+.brand-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-hot), var(--accent-warm));
+  box-shadow: 0 0 18px rgba(136, 235, 255, 0.45);
+  flex-shrink: 0;
+}
+
+.brand-signature {
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
 .brand-copy {
   display: inline-flex;
   flex-direction: column;
@@ -157,18 +173,6 @@ nav {
 
 .brand-main {
   font-size: 1rem;
-}
-
-.brand small {
-  display: inline-flex;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.68rem;
-  border: 1px solid var(--glass-border);
-  background: rgba(18, 16, 40, 0.84);
-  color: var(--text-soft);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .nav-right {
