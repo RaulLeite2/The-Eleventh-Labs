@@ -66,11 +66,16 @@ def _send_with_smtp(to_email: str, verify_url: str) -> tuple[bool, str]:
     )
 
     try:
-        with smtplib.SMTP(settings.smtp_host, settings.smtp_port, timeout=20) as server:
-            if settings.smtp_use_tls:
-                server.starttls()
-            server.login(settings.smtp_username, settings.smtp_password)
-            server.send_message(msg)
+        if settings.smtp_port == 465:
+            with smtplib.SMTP_SSL(settings.smtp_host, settings.smtp_port, timeout=20) as server:
+                server.login(settings.smtp_username, settings.smtp_password)
+                server.send_message(msg)
+        else:
+            with smtplib.SMTP(settings.smtp_host, settings.smtp_port, timeout=20) as server:
+                if settings.smtp_use_tls:
+                    server.starttls()
+                server.login(settings.smtp_username, settings.smtp_password)
+                server.send_message(msg)
         print(f"[AUTH][EMAIL_SENT][SMTP] Verification email sent to {to_email}")
         return True, "smtp"
     except Exception as exc:
