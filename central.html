@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Eleventh Labs Central | v1</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://theabyssauth.up.railway.app; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none';" />
+  <title>The Eleventh Labs Central</title>
   <meta name="description" content="Central inicial da The Eleventh Labs com overview do projeto, auth, backlog e notas locais." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,13 +16,70 @@
   <div class="gradient-orb one"></div>
   <div class="gradient-orb two"></div>
 
-  <div class="dashboard-shell">
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <img src="logo.png" alt="The Eleventh Labs logo" class="sidebar-logo" />
+  <!-- AUTH GATE: shown when no valid session -->
+  <div id="authGate" class="auth-gate" hidden>
+    <div class="auth-gate-card">
+      <div class="auth-gate-brand">
+        <span class="brand-dot"></span>
         <div>
           <strong>The Eleventh Labs</strong>
-          <span>Central v1 by The Abyss</span>
+          <span>by The Abyss</span>
+        </div>
+      </div>
+
+      <div class="auth-gate-hero">
+        <h1>Sua central de projetos</h1>
+        <p>Entre ou crie sua conta para acessar o workspace.</p>
+      </div>
+
+      <div class="auth-gate-toggle">
+        <button id="gateTabRegister" class="gate-tab gate-tab-active" type="button">Criar conta</button>
+        <button id="gateTabLogin" class="gate-tab" type="button">Entrar</button>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <form id="gateRegisterForm" class="auth-gate-form" novalidate>
+        <div class="gate-field">
+          <label for="gateRegEmail">Email</label>
+          <input id="gateRegEmail" type="email" autocomplete="email" required placeholder="voce@exemplo.com" />
+        </div>
+        <div class="gate-field">
+          <label for="gateRegPassword">Senha</label>
+          <input id="gateRegPassword" type="password" autocomplete="new-password" required placeholder="Minimo 8 caracteres" minlength="8" />
+        </div>
+        <div class="gate-field">
+          <label for="gateRegConfirm">Confirmar senha</label>
+          <input id="gateRegConfirm" type="password" autocomplete="new-password" required placeholder="Repita a senha" minlength="8" />
+        </div>
+        <button class="gate-submit" type="submit">Criar conta</button>
+        <p id="gateRegFeedback" class="gate-feedback" role="alert" aria-live="polite"></p>
+      </form>
+
+      <!-- LOGIN FORM -->
+      <form id="gateLoginForm" class="auth-gate-form" hidden novalidate>
+        <div class="gate-field">
+          <label for="gateLoginEmail">Email</label>
+          <input id="gateLoginEmail" type="email" autocomplete="email" required placeholder="voce@exemplo.com" />
+        </div>
+        <div class="gate-field">
+          <label for="gateLoginPassword">Senha</label>
+          <input id="gateLoginPassword" type="password" autocomplete="current-password" required placeholder="Sua senha" />
+        </div>
+        <button class="gate-submit" type="submit">Entrar</button>
+        <p id="gateLoginFeedback" class="gate-feedback" role="alert" aria-live="polite"></p>
+      </form>
+
+      <p class="auth-gate-footer">Seus dados sao tratados com seguranca via HTTPS. Nunca compartilhamos suas informacoes.</p>
+    </div>
+  </div>
+
+  <div id="dashboardShell" class="dashboard-shell" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-dot"></span>
+        <div>
+          <strong>The Eleventh Labs</strong>
+          <span>Central by The Abyss</span>
         </div>
       </div>
 
