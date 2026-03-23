@@ -9,10 +9,10 @@ const storageKeys = {
 };
 
 const defaultBacklog = [
-  { id: 1, label: "Fechar direcao visual da central", done: true },
-  { id: 2, label: "Definir primeira area privada real", done: false },
-  { id: 3, label: "Conectar verificacao por email na API da The Abyss", done: false },
-  { id: 4, label: "Preparar deploy quando o fluxo estiver validado", done: false }
+  { id: 1, label: "Fechar fluxo de sessao e verificacao do usuario", done: true },
+  { id: 2, label: "Definir primeira area privada real do usuario", done: false },
+  { id: 3, label: "Projetar perfil, preferencias e estado da conta", done: false },
+  { id: 4, label: "Preparar proximos modulos protegidos da central", done: false }
 ];
 
 const dom = {
