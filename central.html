@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://theabyssauth.up.railway.app; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none';" />
+  <title>The Eleventh Labs Central</title>
+  <meta name="description" content="Central inicial da The Eleventh Labs com overview do projeto, auth, backlog e notas locais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="central.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="gradient-orb one"></div>
+  <div class="gradient-orb two"></div>
+
+  <!-- AUTH GATE: shown when no valid session -->
+  <div id="authGate" class="auth-gate" hidden>
+    <div class="auth-gate-card">
+      <div class="auth-gate-brand">
+        <span class="brand-dot"></span>
+        <div>
+          <strong>The Eleventh Labs</strong>
+          <span>by The Abyss</span>
+        </div>
+      </div>
+
+      <div class="auth-gate-hero">
+        <h1>Sua central de projetos</h1>
+        <p>Entre ou crie sua conta para acessar o workspace.</p>
+      </div>
+
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin: 2.5rem 0;">
+        <button id="gateDiscordBtn" class="gate-submit gate-submit-discord" type="button" style="font-size:1.1rem;min-width:220px;">
+          Entrar com Discord
+        </button>
+        <p id="gateLoginFeedback" class="gate-feedback" role="alert" aria-live="polite"></p>
+      </div>
+
+      <p class="auth-gate-footer">Seus dados sao tratados com seguranca via HTTPS. Nunca compartilhamos suas informacoes.</p>
+    </div>
+  </div>
+
+  <div id="dashboardShell" class="dashboard-shell" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-dot"></span>
+        <div>
+          <strong>The Eleventh Labs</strong>
+          <span>Central by The Abyss</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="#overview">Usuario</a>
+        <a class="sidebar-link" href="#workspace">Workspace</a>
+        <a class="sidebar-link" href="#backlog">Backlog</a>
+        <a class="sidebar-link" href="#notes">Notas</a>
+      </nav>
+
+      <div class="sidebar-panel">
+        <span class="sidebar-label">Modo</span>
+        <strong id="centralAuthMode">Local</strong>
+        <p id="centralAuthHint">Usando sessao local para teste.</p>
+      </div>
+
+      <div class="sidebar-panel">
+        <span class="sidebar-label">Atalho</span>
+        <a class="sidebar-cta" href="index.html">Voltar para a landing</a>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Central</p>
+          <h1>Uma area inicial para estruturar a experiencia do usuario</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="user-badge">
+            <span id="userStatusDot" class="status-dot"></span>
+            <div>
+              <strong id="centralUserLabel">Visitante</strong>
+              <span id="centralUserSub">Entre para desbloquear o fluxo completo</span>
+            </div>
+          </div>
+          <a class="ghost-btn" href="index.html#auth">Auth</a>
+          <button id="centralLogoutBtn" class="ghost-btn" type="button" disabled>Sair</button>
+        </div>
+      </header>
+
+      <section class="overview-grid" id="overview">
+        <article class="overview-card accent">
+          <span class="card-kicker">Usuario</span>
+          <h2>Conta e sessao em primeiro plano</h2>
+          <p>O foco agora e acelerar a camada do usuario: autenticacao, verificacao, acesso privado e os proximos blocos reais da central.</p>
+        </article>
+        <article class="overview-card">
+          <span class="card-kicker">Sessao</span>
+          <strong id="centralUserEmail">Sem sessao ativa</strong>
+          <p id="centralVerificationText">Entre na landing para autenticar usando a API real da The Abyss.</p>
+        </article>
+        <article class="overview-card">
+          <span class="card-kicker">Projeto</span>
+          <strong id="centralWaitlistCount">0 registros</strong>
+          <p>A base geral ja existe. Agora a prioridade e transformar isso em uma experiencia real para quem entra.</p>
+        </article>
+      </section>
+
+      <section class="workspace-grid" id="workspace">
+        <article class="panel panel-large">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Workspace</p>
+              <h2>Blocos principais da camada de usuario</h2>
+            </div>
+          </div>
+          <div class="module-grid">
+            <article class="module-card">
+              <strong>Identidade do usuario</strong>
+              <p>Estado atual da conta, email ativo e leitura rapida da sessao.</p>
+            </article>
+            <article class="module-card">
+              <strong>Verificacao e acesso</strong>
+              <p>Fluxo de entrada, verificacao por email e preparacao de acesso privado real.</p>
+            </article>
+            <article class="module-card">
+              <strong>Area privada</strong>
+              <p>Espaco natural para trazer perfil, preferencias e os primeiros recursos protegidos.</p>
+            </article>
+            <article class="module-card">
+              <strong>Notas rapidas</strong>
+              <p>Espaco para registrar decisoes enquanto a parte do usuario ganha forma.</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Readiness</p>
+              <h2>O que ja permite avancar</h2>
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li>Auth real funcional via API da The Abyss.</li>
+            <li>Sessao reaproveitada entre landing e central.</li>
+            <li>Estrutura pronta para area privada de usuario.</li>
+            <li>Base visual suficiente para evoluir sem retrabalho pesado.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel" id="backlog">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Backlog</p>
+              <h2>Prioridades imediatas</h2>
+            </div>
+          </div>
+          <div id="backlogList" class="checklist"></div>
+        </article>
+
+        <article class="panel" id="notes">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Notas</p>
+              <h2>Rascunhos da experiencia do usuario</h2>
+            </div>
+          </div>
+          <form id="notesForm" class="notes-form">
+            <textarea id="notesInput" rows="5" placeholder="Anota uma ideia, ajuste de produto ou decisao de design..."></textarea>
+            <button class="primary-btn" type="submit">Salvar nota</button>
+          </form>
+          <div id="notesFeedback" class="feedback-box">Nenhuma nota salva ainda.</div>
+          <ul id="notesList" class="notes-list"></ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="central.js"></script>
+</body>
+</html>
