@@ -69,3 +69,22 @@ Set at least these values in Railway:
 Optional SMTP fallback values:
 
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_FROM_EMAIL`, `SMTP_USE_TLS`
+
+
+## Discord OAuth Login
+
+Para permitir login com Discord:
+
+- No Discord Developer Portal, crie uma aplicação
+- Em "OAuth2 → Redirects", adicione:
+	- `https://theabyssauth.up.railway.app/auth/discord/callback`
+- Em "OAuth2 → Scopes", marque:
+	- `identify` (obrigatório)
+	- `email` (opcional, recomendado)
+- Copie o Client ID e Secret para as variáveis:
+	- `DISCORD_CLIENT_ID`
+	- `DISCORD_CLIENT_SECRET`
+	- `DISCORD_REDIRECT_URI` (igual ao callback acima)
+	- `DISCORD_OAUTH_SCOPE` (padrão: `identify email`)
+
+O frontend deve chamar `/auth/discord/login?next=/central.html` para iniciar o fluxo.

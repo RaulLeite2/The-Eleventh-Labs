@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     frontend_base_url: str = "http://localhost:5500"
     public_api_base_url: str = "http://localhost:8000"
 
+    discord_client_id: str | None = None
+    discord_client_secret: str | None = None
+    discord_redirect_uri: str | None = None
+    discord_oauth_scope: str = "identify email"
+
     email_provider: str = "auto"
 
     resend_api_key: str | None = None
