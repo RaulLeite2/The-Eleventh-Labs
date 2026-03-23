@@ -328,7 +328,7 @@ function applyTranslations() {
   if (!currentUser) {
     dom.authStateTitle.textContent = t("auth_state_idle_title");
     dom.authStateText.textContent = t("auth_state_idle_text");
-    dom.authStatusBadge.textContent = t("auth_status_active");
+    if (dom.authStatusBadge) dom.authStatusBadge.textContent = t("auth_status_active");
     dom.authModeLabel.textContent = t("current_auth_mode");
   } else {
     updateUiForUser(currentUser);
@@ -429,7 +429,7 @@ function updateUiForUser(user) {
     dom.logoutBtn.disabled = true;
     dom.authStateTitle.textContent = t("auth_state_idle_title");
     dom.authStateText.textContent = t("auth_state_idle_text");
-    dom.authStatusBadge.textContent = t("auth_status_active");
+    if (dom.authStatusBadge) dom.authStatusBadge.textContent = t("auth_status_active");
     updateVerifyButtonState();
     return;
   }
@@ -439,7 +439,9 @@ function updateUiForUser(user) {
   dom.authStateText.textContent = user.emailVerified
     ? t("auth_state_verified_text", { email: user.email })
     : t("auth_state_pending_text", { email: user.email });
-  dom.authStatusBadge.textContent = user.emailVerified ? t("auth_status_verified") : t("auth_status_pending");
+  if (dom.authStatusBadge) {
+    dom.authStatusBadge.textContent = user.emailVerified ? t("auth_status_verified") : t("auth_status_pending");
+  }
   updateVerifyButtonState();
 }
 
