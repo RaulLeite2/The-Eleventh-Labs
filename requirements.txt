@@ -1,0 +1,1 @@
+# requirements.txt para servidor Python simples
