@@ -49,7 +49,7 @@ async def register(payload: RegisterRequest, db: AsyncSession = Depends(get_db))
     verify_url = f"{settings.frontend_base_url}/verify-email?token={token}"
     sent = send_verification_email(user.email, verify_url)
 
-    mode = "email sent" if sent else "email fallback (token logged in backend)"
+    mode = "email sent" if sent else "email not sent (fallback ativo; confira SMTP/logs)"
     return MessageResponse(message=f"User created. Verification pending ({mode}).")
 
 
@@ -84,7 +84,7 @@ async def resend_verification(payload: ResendVerificationRequest, db: AsyncSessi
 
     verify_url = f"{settings.frontend_base_url}/verify-email?token={token}"
     sent = send_verification_email(user.email, verify_url)
-    mode = "email sent" if sent else "email fallback (token logged in backend)"
+    mode = "email sent" if sent else "email not sent (fallback ativo; confira SMTP/logs)"
     return MessageResponse(message=f"Verification resent ({mode}).")
 
 

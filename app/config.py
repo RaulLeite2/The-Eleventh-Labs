@@ -33,5 +33,14 @@ class Settings(BaseSettings):
             v = v.replace("postgresql://", "postgresql+asyncpg://", 1)
         return v
 
+    @field_validator("smtp_password", mode="before")
+    @classmethod
+    def normalize_smtp_password(cls, v: str | None) -> str | None:
+        if v is None:
+            return None
+        # Gmail app password is often copied with spaces (xxxx xxxx xxxx xxxx).
+        # Normalize so both formats work.
+        return v.replace(" ", "").strip() or None
+
 
 settings = Settings()
