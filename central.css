@@ -584,6 +584,12 @@ textarea {
   cursor: not-allowed;
 }
 
+.gate-submit-discord {
+  background: linear-gradient(120deg, rgba(88, 101, 242, 0.25), rgba(124, 137, 255, 0.18));
+  border-color: rgba(124, 137, 255, 0.36);
+  color: #c8ceff;
+}
+
 .gate-feedback {
   min-height: 1.2em;
   font-size: 0.83rem;
