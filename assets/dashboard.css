@@ -1,0 +1,48 @@
+/* Console interativo */
+.code-exec-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #181c24;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0002;
+  max-width: 700px;
+}
+.code-exec-container h2 {
+  margin-top: 0;
+  color: #fff;
+}
+.code-exec-container textarea {
+  width: 100%;
+  background: #23283a;
+  color: #fff;
+  border: 1px solid #333a;
+  border-radius: 6px;
+  padding: 0.7rem;
+  font-family: monospace;
+  margin-bottom: 0.7rem;
+  resize: vertical;
+}
+.code-exec-container button {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.code-exec-container button:hover {
+  background: #3570d4;
+}
+.code-output {
+  background: #10131a;
+  color: #b6e1ff;
+  border-radius: 6px;
+  padding: 1rem;
+  min-height: 2rem;
+  margin-top: 1rem;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
