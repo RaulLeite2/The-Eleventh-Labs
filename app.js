@@ -1,5 +1,258 @@
 import { API_BASE_URL } from "./config.js";
 
+const translations = {
+  pt: {
+    nav_about: "Sobre",
+    nav_how: "Como funciona",
+    nav_benefits: "Beneficios",
+    nav_auth: "Auth",
+    nav_central: "Central",
+    nav_access: "Acessar",
+    hero_kicker: "Launch layer for builders and premium projects",
+    hero_title: "Crie projetos com cara de produto serio desde a primeira tela.",
+    hero_subtitle: "The Eleventh Labs foi pensada para unir branding forte, onboarding elegante e auth real, para que o usuario entre, crie e avance sem sentir que esta num prototipo improvisado.",
+    hero_cta_primary: "Criar conta",
+    hero_cta_secondary: "Entrar",
+    hero_cta_workspace: "Abrir workspace",
+    signal_auth: "Auth real",
+    signal_projects: "Projetos do usuario",
+    signal_bilingual: "PT / EN",
+    signal_ready: "Base pronta para dashboard",
+    metric_1_title: "Entrada premium",
+    metric_1_text: "Uma home com peso visual para apresentar o produto sem parecer holding page vazia.",
+    metric_2_title: "Auth conectado",
+    metric_2_text: "Cadastro, login e verificacao falam com a API real da The Abyss no Railway.",
+    metric_3_title: "Proxima camada",
+    metric_3_text: "Depois do login, o usuario entra numa central pronta para receber projetos, perfil e configuracoes.",
+    panel_status: "Status",
+    panel_title: "O que a primeira experiencia ja entrega",
+    pulse_now_label: "Agora",
+    pulse_now_text: "uma homepage forte, auth funcional e caminho claro para o usuario entrar.",
+    pulse_next_label: "Depois",
+    pulse_next_text: "projetos do usuario, perfil, preferencias e area privada real.",
+    pulse_signature_label: "Assinatura",
+    pulse_signature_text: "produto da The Abyss com identidade propria e base escalavel.",
+    console_label: "Stack atual",
+    console_text: "premium landing + real auth API + bilingual UX + central v1",
+    panel_note_title: "Promessa principal",
+    panel_note_text: "Fazer o usuario sentir que entrou num produto que ja sabe para onde vai, mesmo antes do dashboard completo existir.",
+    about_kicker: "Sobre",
+    about_title: "Uma home para vender criacao, acesso e evolucao de produto",
+    about_text: "A homepage agora tem uma funcao clara: apresentar valor, puxar cadastro e preparar o usuario para entrar numa area onde os projetos dele vao morar depois.",
+    how_kicker: "Como funciona",
+    how_title: "Um fluxo simples para sair da landing e entrar no workspace",
+    how_card_1_title: "1. Criar conta",
+    how_card_1_text: "O usuario entra por uma camada limpa e direta, sem friccao visual nem fluxo confuso.",
+    how_card_2_title: "2. Validar acesso",
+    how_card_2_text: "A API autentica, guarda a sessao e deixa o caminho pronto para verificacao e controle de conta.",
+    how_card_3_title: "3. Entrar nos projetos",
+    how_card_3_text: "Depois do login, a central passa a ser o espaco real para perfil, projetos e proximos modulos privados.",
+    benefits_kicker: "Beneficios",
+    benefits_title: "Por que essa home ja ajuda o produto hoje",
+    benefits_text: "Ela nao so apresenta marca. Ela tambem captura entrada, orienta decisao do usuario e abre o proximo passo com um visual que parece produto, nao rascunho.",
+    benefit_chip_1: "Marca forte",
+    benefit_chip_2: "Auth real",
+    benefit_chip_3: "Sessao persistida",
+    benefit_chip_4: "Entrada premium",
+    benefits_cta: "Ir para a central",
+    launch_kicker: "Launch path",
+    launch_title: "A base certa para o dashboard que vem depois",
+    launch_step_1: "Atrair o usuario com uma proposta forte.",
+    launch_step_2: "Levar para cadastro ou login sem perder contexto.",
+    launch_step_3: "Persistir a sessao para continuar na central.",
+    launch_step_4: "Expandir a parte do usuario com projetos, perfil e configuracoes.",
+    auth_kicker: "Auth",
+    auth_title: "Cadastro e login com backend real",
+    auth_open: "Abrir auth",
+    auth_text: "A camada de entrada ja usa a API da The Abyss para registrar usuario, autenticar sessao e reenviar verificacao por email.",
+    auth_create: "Criar conta",
+    auth_logout: "Sair",
+    security_kicker: "Seguranca",
+    security_title: "Uma entrada pronta para virar produto serio",
+    security_item_1: "Mesmo backend para cadastro, login e sessao.",
+    security_item_2: "JWT reaproveitavel nas areas privadas.",
+    security_item_3: "Sessao revalidada quando a pagina abre.",
+    security_item_4: "Estrutura pronta para perfil, preferencias e recursos protegidos.",
+    access_kicker: "Acesso antecipado",
+    access_title: "Enquanto o dashboard cresce, voce ja pode medir interesse",
+    access_text: "A lista de interesse continua local por enquanto, mas ela ajuda a testar a linguagem da home e os gatilhos de entrada antes de ligar um fluxo real para leads.",
+    access_stat_1: "interesses salvos localmente",
+    access_stat_2: "camada atual de autenticacao",
+    form_name: "Nome",
+    form_email: "Email",
+    form_interest: "O que voce quer fazer primeiro?",
+    form_submit: "Salvar interesse",
+    waitlist_empty: "Nenhum interesse salvo ainda nesta sessao local.",
+    faq_title: "Perguntas que o usuario pode fazer antes de entrar",
+    faq_q1: "Eu ja consigo entrar hoje?",
+    faq_a1: "Sim. A home ja conversa com a API real para cadastro, login, sessao e reenvio de verificacao.",
+    faq_q2: "Depois do login eu vou para onde?",
+    faq_a2: "Para a central, que ja reconhece a sessao atual e esta pronta para evoluir para projetos, perfil e configuracoes.",
+    faq_q3: "A home ja esta final?",
+    faq_a3: "Nao. Ela ja esta forte o suficiente para funcionar agora, mas ainda pode evoluir junto com o produto.",
+    footer_text: "Uma camada premium de lancamento da The Abyss para produtos guiados por projetos.",
+    modal_kicker: "Acesso",
+    modal_title: "Cadastro e login",
+    modal_subtitle: "Este fluxo ja usa a API real da The Abyss. Depois do cadastro, a verificacao por email continua no backend hospedado no Railway.",
+    modal_password: "Senha",
+    modal_register: "Criar conta",
+    modal_login: "Entrar",
+    modal_verify: "Reenviar verificacao",
+    modal_feedback: "Preencha seu email e senha para testar o fluxo.",
+    input_name_placeholder: "Seu nome",
+    input_email_placeholder: "voce@exemplo.com",
+    input_password_placeholder: "Minimo de 6 caracteres",
+    interest_1: "Criar projeto",
+    interest_2: "Entrar no workspace",
+    interest_3: "Ver a central",
+    interest_4: "Acompanhar o lancamento",
+    auth_state_idle_title: "Auth real ativo",
+    auth_state_idle_text: "Backend conectado. Crie uma conta ou entre para testar verificacao real por email.",
+    auth_state_verified_title: "Conta verificada",
+    auth_state_pending_title: "Conta criada, verificacao pendente",
+    auth_state_verified_text: "Voce esta autenticado como {email}.",
+    auth_state_pending_text: "Voce entrou como {email}. Verifique o email para concluir.",
+    auth_status_active: "API ativa",
+    auth_status_verified: "Verificado",
+    auth_status_pending: "Pendente",
+    register_success: "Conta criada. Verifique o email para poder entrar.",
+    register_error: "Nao foi possivel criar a conta: {message}",
+    login_success: "Login realizado com sucesso.",
+    login_error: "Nao foi possivel entrar: {message}",
+    verify_empty: "Digite seu email para reenviar a verificacao.",
+    verify_success: "Email de verificacao reenviado.",
+    verify_error: "Falha na verificacao: {message}",
+    logout_success: "Sessao encerrada.",
+    waitlist_success: "Interesse salvo localmente com sucesso. Depois isso pode virar um fluxo real com backend.",
+    current_auth_mode: "API"
+  },
+  en: {
+    nav_about: "About",
+    nav_how: "How it works",
+    nav_benefits: "Benefits",
+    nav_auth: "Auth",
+    nav_central: "Central",
+    nav_access: "Access",
+    hero_kicker: "Launch layer for builders and premium projects",
+    hero_title: "Build projects with a serious product feel from the very first screen.",
+    hero_subtitle: "The Eleventh Labs was designed to combine strong branding, elegant onboarding and real auth, so users can enter, create and move forward without feeling trapped in a rough prototype.",
+    hero_cta_primary: "Create account",
+    hero_cta_secondary: "Sign in",
+    hero_cta_workspace: "Open workspace",
+    signal_auth: "Real auth",
+    signal_projects: "User projects",
+    signal_bilingual: "PT / EN",
+    signal_ready: "Dashboard-ready base",
+    metric_1_title: "Premium entry",
+    metric_1_text: "A landing with enough visual weight to present the product without feeling like an empty holding page.",
+    metric_2_title: "Connected auth",
+    metric_2_text: "Signup, login and verification already talk to The Abyss real API on Railway.",
+    metric_3_title: "Next layer",
+    metric_3_text: "After login, the user lands in a central area ready for projects, profile and settings.",
+    panel_status: "Status",
+    panel_title: "What the first experience already delivers",
+    pulse_now_label: "Now",
+    pulse_now_text: "a strong homepage, working auth and a clear path into the product.",
+    pulse_next_label: "Next",
+    pulse_next_text: "user projects, profile, preferences and a real private area.",
+    pulse_signature_label: "Signature",
+    pulse_signature_text: "a The Abyss product with its own identity and a scalable base.",
+    console_label: "Current stack",
+    console_text: "premium landing + real auth API + bilingual UX + central v1",
+    panel_note_title: "Main promise",
+    panel_note_text: "Make the user feel like they entered a product that already knows where it is going, even before the full dashboard exists.",
+    about_kicker: "About",
+    about_title: "A homepage built to sell creation, access and product evolution",
+    about_text: "The homepage now has a clear job: present value, drive signup and prepare the user to enter the area where their projects will live next.",
+    how_kicker: "How it works",
+    how_title: "A simple flow from landing page to workspace",
+    how_card_1_title: "1. Create an account",
+    how_card_1_text: "Users enter through a clean, direct layer with no visual friction or confusing path.",
+    how_card_2_title: "2. Validate access",
+    how_card_2_text: "The API authenticates, stores the session and keeps the way open for verification and account control.",
+    how_card_3_title: "3. Enter projects",
+    how_card_3_text: "After login, the central becomes the real space for profile, projects and future private modules.",
+    benefits_kicker: "Benefits",
+    benefits_title: "Why this homepage already helps the product today",
+    benefits_text: "It does more than present the brand. It captures entry, guides user decisions and opens the next step with a product-grade feel instead of a draft.",
+    benefit_chip_1: "Strong brand",
+    benefit_chip_2: "Real auth",
+    benefit_chip_3: "Persistent session",
+    benefit_chip_4: "Premium entry",
+    benefits_cta: "Go to central",
+    launch_kicker: "Launch path",
+    launch_title: "The right base for the dashboard that comes next",
+    launch_step_1: "Attract the user with a strong proposition.",
+    launch_step_2: "Move them to signup or login without losing context.",
+    launch_step_3: "Persist the session to continue in the central.",
+    launch_step_4: "Expand the user layer with projects, profile and settings.",
+    auth_kicker: "Auth",
+    auth_title: "Signup and login with a real backend",
+    auth_open: "Open auth",
+    auth_text: "The entry layer already uses The Abyss API to register users, authenticate sessions and resend email verification.",
+    auth_create: "Create account",
+    auth_logout: "Logout",
+    security_kicker: "Security",
+    security_title: "An entry layer ready to become a serious product",
+    security_item_1: "Same backend for signup, login and session.",
+    security_item_2: "Reusable JWT for private areas.",
+    security_item_3: "Session revalidated when the page opens.",
+    security_item_4: "Structure ready for profile, preferences and protected features.",
+    access_kicker: "Early access",
+    access_title: "While the dashboard grows, you can already measure interest",
+    access_text: "The interest list is still local for now, but it helps test the homepage language and entry triggers before wiring a real lead flow.",
+    access_stat_1: "interests saved locally",
+    access_stat_2: "current auth layer",
+    form_name: "Name",
+    form_email: "Email",
+    form_interest: "What do you want to do first?",
+    form_submit: "Save interest",
+    waitlist_empty: "No interest saved in this local session yet.",
+    faq_title: "Questions a user may ask before entering",
+    faq_q1: "Can I already get in today?",
+    faq_a1: "Yes. The homepage already talks to the real API for signup, login, session and verification resend.",
+    faq_q2: "Where do I go after login?",
+    faq_a2: "To the central area, which already recognizes the current session and is ready to evolve into projects, profile and settings.",
+    faq_q3: "Is the homepage final already?",
+    faq_a3: "No. It is already strong enough to work now, but it can still evolve with the product.",
+    footer_text: "A premium launch layer by The Abyss for project-driven products.",
+    modal_kicker: "Access",
+    modal_title: "Sign up and login",
+    modal_subtitle: "This flow already uses The Abyss real API. After signup, email verification continues in the backend hosted on Railway.",
+    modal_password: "Password",
+    modal_register: "Create account",
+    modal_login: "Sign in",
+    modal_verify: "Resend verification",
+    modal_feedback: "Fill in your email and password to test the flow.",
+    input_name_placeholder: "Your name",
+    input_email_placeholder: "you@example.com",
+    input_password_placeholder: "Minimum 6 characters",
+    interest_1: "Create a project",
+    interest_2: "Enter the workspace",
+    interest_3: "See the central",
+    interest_4: "Follow the launch",
+    auth_state_idle_title: "Real auth active",
+    auth_state_idle_text: "Backend connected. Create an account or sign in to test real email verification.",
+    auth_state_verified_title: "Verified account",
+    auth_state_pending_title: "Account created, verification pending",
+    auth_state_verified_text: "You are authenticated as {email}.",
+    auth_state_pending_text: "You signed in as {email}. Verify your email to continue.",
+    auth_status_active: "API active",
+    auth_status_verified: "Verified",
+    auth_status_pending: "Pending",
+    register_success: "Account created. Verify your email before signing in.",
+    register_error: "Could not create the account: {message}",
+    login_success: "Login completed successfully.",
+    login_error: "Could not sign in: {message}",
+    verify_empty: "Type your email to resend verification.",
+    verify_success: "Verification email resent.",
+    verify_error: "Verification failed: {message}",
+    logout_success: "Session ended.",
+    waitlist_success: "Interest saved locally. Later this can become a real backend flow.",
+    current_auth_mode: "API"
+  }
+};
+
 const storageKeys = {
   session: "the-eleventh-labs-session",
   waitlist: "the-eleventh-labs-waitlist"
@@ -26,10 +279,69 @@ const dom = {
   waitlistForm: document.getElementById("waitlistForm"),
   waitlistName: document.getElementById("waitlistName"),
   waitlistEmail: document.getElementById("waitlistEmail"),
-  waitlistInterest: document.getElementById("waitlistInterest")
+  waitlistInterest: document.getElementById("waitlistInterest"),
+  langButtons: document.querySelectorAll("[data-lang]"),
+  i18nNodes: document.querySelectorAll("[data-i18n]")
 };
 
+let currentLanguage = localStorage.getItem("the-eleventh-labs-language") || "pt";
 let currentUser = null;
+
+function t(key, vars = {}) {
+  const dictionary = translations[currentLanguage] || translations.pt;
+  let message = dictionary[key] || translations.pt[key] || key;
+  Object.entries(vars).forEach(([name, value]) => {
+    message = message.replace(`{${name}}`, value);
+  });
+  return message;
+}
+
+function applyTranslations() {
+  document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
+  dom.i18nNodes.forEach((node) => {
+    const key = node.dataset.i18n;
+    if (key) {
+      node.textContent = t(key);
+    }
+  });
+
+  dom.waitlistName.placeholder = t("input_name_placeholder");
+  dom.waitlistEmail.placeholder = t("input_email_placeholder");
+  dom.emailInput.placeholder = t("input_email_placeholder");
+  dom.passwordInput.placeholder = t("input_password_placeholder");
+
+  const options = dom.waitlistInterest.querySelectorAll("option[data-i18n]");
+  options.forEach((option) => {
+    option.textContent = t(option.dataset.i18n);
+  });
+
+  dom.langButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.lang === currentLanguage);
+  });
+
+  if (!currentUser) {
+    dom.authStateTitle.textContent = t("auth_state_idle_title");
+    dom.authStateText.textContent = t("auth_state_idle_text");
+    dom.authStatusBadge.textContent = t("auth_status_active");
+    dom.authModeLabel.textContent = t("current_auth_mode");
+  } else {
+    updateUiForUser(currentUser);
+  }
+
+  if (!dom.waitlistFeedback.dataset.tone) {
+    dom.waitlistFeedback.textContent = t("waitlist_empty");
+  }
+}
+
+function setupLanguageSwitch() {
+  dom.langButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      currentLanguage = button.dataset.lang;
+      localStorage.setItem("the-eleventh-labs-language", currentLanguage);
+      applyTranslations();
+    });
+  });
+}
 
 function readJson(key, fallback) {
   try {
@@ -89,23 +401,23 @@ function setupModal() {
 
 function updateUiForUser(user) {
   currentUser = user;
-  if (dom.authModeLabel) dom.authModeLabel.textContent = "API";
-  if (dom.verifyBtn) dom.verifyBtn.textContent = "Reenviar verificacao";
+  if (dom.authModeLabel) dom.authModeLabel.textContent = t("current_auth_mode");
+  if (dom.verifyBtn) dom.verifyBtn.textContent = t("modal_verify");
 
   if (!user) {
     dom.logoutBtn.disabled = true;
-    dom.authStateTitle.textContent = "Auth real ativo";
-    dom.authStateText.textContent = "Backend conectado. Crie uma conta ou entre para testar verificacao real por email.";
-    dom.authStatusBadge.textContent = "API ativa";
+    dom.authStateTitle.textContent = t("auth_state_idle_title");
+    dom.authStateText.textContent = t("auth_state_idle_text");
+    dom.authStatusBadge.textContent = t("auth_status_active");
     return;
   }
 
   dom.logoutBtn.disabled = false;
-  dom.authStateTitle.textContent = user.emailVerified ? "Conta verificada" : "Conta criada, verificacao pendente";
+  dom.authStateTitle.textContent = user.emailVerified ? t("auth_state_verified_title") : t("auth_state_pending_title");
   dom.authStateText.textContent = user.emailVerified
-    ? `Voce esta autenticado como ${user.email}.`
-    : `Voce entrou como ${user.email}. Verifique o email para concluir.`;
-  dom.authStatusBadge.textContent = user.emailVerified ? "Verificado" : "Pendente";
+    ? t("auth_state_verified_text", { email: user.email })
+    : t("auth_state_pending_text", { email: user.email });
+  dom.authStatusBadge.textContent = user.emailVerified ? t("auth_status_verified") : t("auth_status_pending");
 }
 
 function getSession() {
@@ -133,9 +445,9 @@ async function handleRegister(event) {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || "Erro ao criar conta.");
-    setFeedback(dom.authFeedback, "Conta criada! Verifique o email para poder entrar.", "success");
+    setFeedback(dom.authFeedback, t("register_success"), "success");
   } catch (error) {
-    setFeedback(dom.authFeedback, `Nao foi possivel criar a conta: ${error.message}`, "error");
+    setFeedback(dom.authFeedback, t("register_error", { message: error.message }), "error");
   }
 }
 
@@ -159,17 +471,17 @@ async function handleLogin() {
     const user = { email: me.email, emailVerified: me.is_verified, token: loginData.access_token };
     setSession(user);
     updateUiForUser(user);
-    setFeedback(dom.authFeedback, "Login realizado com sucesso.", "success");
+    setFeedback(dom.authFeedback, t("login_success"), "success");
     closeModal();
   } catch (error) {
-    setFeedback(dom.authFeedback, `Nao foi possivel entrar: ${error.message}`, "error");
+    setFeedback(dom.authFeedback, t("login_error", { message: error.message }), "error");
   }
 }
 
 async function handleVerify() {
   const email = dom.emailInput.value.trim() || (currentUser && currentUser.email);
   if (!email) {
-    setFeedback(dom.authFeedback, "Digite seu email para reenviar a verificacao.", "error");
+    setFeedback(dom.authFeedback, t("verify_empty"), "error");
     return;
   }
 
@@ -181,16 +493,16 @@ async function handleVerify() {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || "Erro ao reenviar.");
-    setFeedback(dom.authFeedback, "Email de verificacao reenviado.", "success");
+    setFeedback(dom.authFeedback, t("verify_success"), "success");
   } catch (error) {
-    setFeedback(dom.authFeedback, `Falha na verificacao: ${error.message}`, "error");
+    setFeedback(dom.authFeedback, t("verify_error", { message: error.message }), "error");
   }
 }
 
 async function handleLogout() {
   setSession(null);
   updateUiForUser(null);
-  setFeedback(dom.authFeedback, "Sessao encerrada.", "success");
+  setFeedback(dom.authFeedback, t("logout_success"), "success");
 }
 
 function refreshWaitlistUi() {
@@ -212,7 +524,7 @@ function handleWaitlistSubmit(event) {
   writeJson(storageKeys.waitlist, waitlist);
   refreshWaitlistUi();
   dom.waitlistForm.reset();
-  setFeedback(dom.waitlistFeedback, "Interesse salvo localmente com sucesso. Quando voce quiser, isso pode virar um fluxo real com backend ou provider externo.", "success");
+  setFeedback(dom.waitlistFeedback, t("waitlist_success"), "success");
 }
 
 function setupEvents() {
@@ -251,6 +563,8 @@ async function restoreSession() {
 
 setupReveal();
 setupModal();
+setupLanguageSwitch();
 setupEvents();
 refreshWaitlistUi();
+applyTranslations();
 restoreSession();

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Eleventh Labs | Projeto em evolucao pela The Abyss</title>
-  <meta name="description" content="The Eleventh Labs e um projeto em evolucao da The Abyss, com foco em produto, identidade visual, acesso antecipado e experimentacao real." />
+  <title>The Eleventh Labs | Build projects with a premium launch layer</title>
+  <meta name="description" content="The Eleventh Labs e a camada de entrada para criar projetos, abrir acesso e transformar ideias em produtos com identidade forte e auth real." />
   <meta property="og:title" content="The Eleventh Labs" />
-  <meta property="og:description" content="Projeto em evolucao da The Abyss com foco em produto, estrutura e acesso antecipado." />
+  <meta property="og:description" content="Create projects, open access and launch with a premium front layer powered by The Abyss." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,71 +31,82 @@
 
         <div class="nav-right">
           <div class="nav-links">
-            <a class="nav-pill" href="#sobre">Sobre</a>
-            <a class="nav-pill" href="#estrutura">Estrutura</a>
-            <a class="nav-pill" href="#roadmap">Roadmap</a>
-            <a class="nav-pill" href="#auth">Auth</a>
-            <a class="nav-pill" href="central.html">Central</a>
+            <a class="nav-pill" href="#sobre" data-i18n="nav_about">Sobre</a>
+            <a class="nav-pill" href="#como-funciona" data-i18n="nav_how">Como funciona</a>
+            <a class="nav-pill" href="#beneficios" data-i18n="nav_benefits">Beneficios</a>
+            <a class="nav-pill" href="#auth" data-i18n="nav_auth">Auth</a>
+            <a class="nav-pill" href="central.html" data-i18n="nav_central">Central</a>
             <a class="nav-pill" href="#faq">FAQ</a>
           </div>
-          <button class="nav-auth-btn" type="button" data-auth-open>Acessar</button>
+          <div class="language-switch" aria-label="Language switcher">
+            <button class="lang-btn is-active" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+          </div>
+          <button class="nav-auth-btn" type="button" data-auth-open data-i18n="nav_access">Acessar</button>
         </div>
       </nav>
 
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="hero-kicker">Projeto em evolucao com base profissional</p>
+          <p class="hero-kicker" data-i18n="hero_kicker">Launch layer for builders and premium projects</p>
           <div class="headline-row">
-            <h1>The Eleventh Labs esta sendo construida para sair do conceito e virar produto de verdade.</h1>
+            <h1 data-i18n="hero_title">Crie projetos com cara de produto serio desde a primeira tela.</h1>
             <img src="logo.png" alt="The Eleventh Labs" class="headline-logo" />
           </div>
-          <p class="hero-subtitle">A proposta aqui nao e fingir que tudo ja esta pronto. E deixar a base certa: identidade forte, narrativa clara, auth pronto para acesso antecipado e estrutura de site que aguenta crescer sem parecer remendo.</p>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">The Eleventh Labs foi pensada para unir branding forte, onboarding elegante e auth real, para que o usuario entre, crie e avance sem sentir que esta num prototipo improvisado.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#estrutura">Ver estrutura</a>
-            <a class="btn btn-secondary" href="central.html">Abrir central v1</a>
-            <button class="btn btn-secondary" type="button" data-auth-open>Entrar no acesso antecipado</button>
+            <button class="btn btn-primary" type="button" data-auth-open data-i18n="hero_cta_primary">Criar conta</button>
+            <button class="btn btn-secondary" type="button" data-auth-open data-i18n="hero_cta_secondary">Entrar</button>
+            <a class="btn btn-secondary" href="central.html" data-i18n="hero_cta_workspace">Abrir workspace</a>
+          </div>
+
+          <div class="signal-strip reveal-target">
+            <span class="signal-pill" data-i18n="signal_auth">Auth real</span>
+            <span class="signal-pill" data-i18n="signal_projects">Projetos do usuario</span>
+            <span class="signal-pill" data-i18n="signal_bilingual">PT / EN</span>
+            <span class="signal-pill" data-i18n="signal_ready">Base pronta para dashboard</span>
           </div>
 
           <div class="hero-metrics reveal-target">
             <article class="hero-metric">
-              <strong>Landing fechada</strong>
-              <span>Mensagem, visual e seções pensadas para apresentar o projeto sem cara de rascunho.</span>
+              <strong data-i18n="metric_1_title">Entrada premium</strong>
+              <span data-i18n="metric_1_text">Uma home com peso visual para apresentar o produto sem parecer holding page vazia.</span>
             </article>
             <article class="hero-metric">
-              <strong>Auth preparado</strong>
-              <span>Cadastro, login e verificacao conectados a API real da The Abyss no Railway.</span>
+              <strong data-i18n="metric_2_title">Auth conectado</strong>
+              <span data-i18n="metric_2_text">Cadastro, login e verificacao falam com a API real da The Abyss no Railway.</span>
             </article>
             <article class="hero-metric">
-              <strong>Direcao clara</strong>
-              <span>Roadmap e estrutura para voce validar antes de subir para GitHub e Railway.</span>
+              <strong data-i18n="metric_3_title">Proxima camada</strong>
+              <span data-i18n="metric_3_text">Depois do login, o usuario entra numa central pronta para receber projetos, perfil e configuracoes.</span>
             </article>
           </div>
         </div>
 
         <aside class="hero-panel reveal-target">
           <div class="panel-status-row">
-            <span class="panel-chip">Status</span>
+            <span class="panel-chip" data-i18n="panel_status">Status</span>
             <span id="authStatusBadge" class="panel-chip panel-chip-soft">API ativa</span>
           </div>
 
-          <h2>Estado atual do projeto</h2>
+          <h2 data-i18n="panel_title">What the first experience already delivers</h2>
           <ul class="project-pulse">
-            <li><strong>Agora</strong>: lapidando narrativa, visual e fluxo de entrada.</li>
-            <li><strong>Proxima fase</strong>: abrir acesso antecipado e medir interesse real.</li>
-            <li><strong>Assinatura</strong>: projeto da The Abyss, com identidade propria.</li>
+            <li><strong data-i18n="pulse_now_label">Agora</strong>: <span data-i18n="pulse_now_text">uma homepage forte, auth funcional e caminho claro para o usuario entrar.</span></li>
+            <li><strong data-i18n="pulse_next_label">Depois</strong>: <span data-i18n="pulse_next_text">projetos do usuario, perfil, preferencias e area privada real.</span></li>
+            <li><strong data-i18n="pulse_signature_label">Assinatura</strong>: <span data-i18n="pulse_signature_text">produto da The Abyss com identidade propria e base escalavel.</span></li>
           </ul>
 
           <div class="mini-console">
-            <span class="mini-console-label">base pronta</span>
-            <code>landing + auth API + central v1 + deploy ativo</code>
+            <span class="mini-console-label" data-i18n="console_label">Current stack</span>
+            <code data-i18n="console_text">premium landing + real auth API + bilingual UX + central v1</code>
           </div>
 
           <div class="panel-divider"></div>
 
           <div class="panel-note">
-            <strong>Decisao certa agora</strong>
-            <p>Testar localmente, ajustar o produto e so depois versionar, publicar e colocar em producao.</p>
+            <strong data-i18n="panel_note_title">Main promise</strong>
+            <p data-i18n="panel_note_text">Fazer o usuario sentir que entrou num produto que ja sabe para onde vai, mesmo antes do dashboard completo existir.</p>
           </div>
         </aside>
       </div>
@@ -104,84 +115,61 @@
 
   <main>
     <section class="section container" id="sobre">
-      <p class="section-kicker">Sobre</p>
-      <h2>Uma base pensada para durar mais que uma landing bonita</h2>
-      <p class="section-sub">Esse site serve como ponto de posicionamento, experimento de produto e porta de entrada para acesso antecipado. A ideia e deixar o projeto com aparencia forte, mas tambem com funcao real desde cedo.</p>
+      <p class="section-kicker" data-i18n="about_kicker">Sobre</p>
+      <h2 data-i18n="about_title">Uma home para vender criacao, acesso e evolucao de produto</h2>
+      <p class="section-sub" data-i18n="about_text">A homepage agora tem uma funcao clara: apresentar valor, puxar cadastro e preparar o usuario para entrar numa area onde os projetos dele vao morar depois.</p>
     </section>
 
-    <section class="section container cards-section" id="estrutura">
+    <section class="section container cards-section" id="como-funciona">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Estrutura</p>
-          <h2>O que o site precisava para parecer profissional agora</h2>
+          <p class="section-kicker" data-i18n="how_kicker">Como funciona</p>
+          <h2 data-i18n="how_title">Um fluxo simples para sair da landing e entrar no workspace</h2>
         </div>
       </div>
 
       <div class="cards">
         <article class="card reveal-target">
-          <h3>Posicionamento claro</h3>
-          <p>Explicar o que e a The Eleventh Labs sem parecer pagina corporativa pesada nem prototipo solto demais.</p>
+          <h3 data-i18n="how_card_1_title">1. Criar conta</h3>
+          <p data-i18n="how_card_1_text">O usuario entra por uma camada limpa e direta, sem friccao visual nem fluxo confuso.</p>
         </article>
         <article class="card reveal-target">
-          <h3>Entrada real de usuario</h3>
-          <p>Permitir cadastro, login e controle de acesso antecipado com base que depois vira auth de producao.</p>
+          <h3 data-i18n="how_card_2_title">2. Validar acesso</h3>
+          <p data-i18n="how_card_2_text">A API autentica, guarda a sessao e deixa o caminho pronto para verificacao e controle de conta.</p>
         </article>
         <article class="card reveal-target">
-          <h3>Camada de validacao</h3>
-          <p>Capturar interesse, testar mensagens e preparar o terreno para quando a central comecar.</p>
+          <h3 data-i18n="how_card_3_title">3. Entrar nos projetos</h3>
+          <p data-i18n="how_card_3_text">Depois do login, a central passa a ser o espaco real para perfil, projetos e proximos modulos privados.</p>
         </article>
       </div>
     </section>
 
-    <section class="section container showcase-section">
+    <section class="section container showcase-section" id="beneficios">
       <div class="showcase-grid">
         <article class="showcase-card reveal-target">
-          <p class="section-kicker">Produto</p>
-          <h2>Uma home que ja conversa com o futuro da central</h2>
-          <p>O site agora funciona como introducao do projeto, camada de autenticacao e ponte para o proximo passo: uma central mais util, organizada e viva.</p>
+          <p class="section-kicker" data-i18n="benefits_kicker">Beneficios</p>
+          <h2 data-i18n="benefits_title">Por que essa home ja ajuda o produto hoje</h2>
+          <p data-i18n="benefits_text">Ela nao so apresenta marca. Ela tambem captura entrada, orienta decisao do usuario e abre o proximo passo com um visual que parece produto, nao rascunho.</p>
           <div class="stack-list">
-            <span>Hero forte</span>
-            <span>Roadmap</span>
-            <span>Auth</span>
-            <span>Waitlist</span>
+            <span data-i18n="benefit_chip_1">Marca forte</span>
+            <span data-i18n="benefit_chip_2">Auth real</span>
+            <span data-i18n="benefit_chip_3">Sessao persistida</span>
+            <span data-i18n="benefit_chip_4">Entrada premium</span>
           </div>
           <div class="showcase-actions">
-            <a class="btn btn-primary" href="central.html">Entrar na central</a>
+            <a class="btn btn-primary" href="central.html" data-i18n="benefits_cta">Ir para a central</a>
           </div>
         </article>
 
         <article class="showcase-card showcase-card-alt reveal-target">
-          <p class="section-kicker">Execucao</p>
-          <h2>Do local para producao sem reescrever tudo</h2>
-          <p>O fluxo principal ja fala com a API real no Railway, mantendo a evolucao simples para as proximas areas privadas sem reescrever a base do projeto.</p>
+          <p class="section-kicker" data-i18n="launch_kicker">Launch path</p>
+          <h2 data-i18n="launch_title">A base certa para o dashboard que vem depois</h2>
           <ol class="ordered-notes">
-            <li>Lapidar a experiencia da landing e da central.</li>
-            <li>Usar a API da The Abyss para cadastro, login e verificacao.</li>
-            <li>Conectar as proximas areas privadas ao mesmo token JWT.</li>
-            <li>Expandir a central conforme o produto ganhar forma.</li>
+            <li data-i18n="launch_step_1">Atrair o usuario com uma proposta forte.</li>
+            <li data-i18n="launch_step_2">Levar para cadastro ou login sem perder contexto.</li>
+            <li data-i18n="launch_step_3">Persistir a sessao para continuar na central.</li>
+            <li data-i18n="launch_step_4">Expandir a parte do usuario com projetos, perfil e configuracoes.</li>
           </ol>
-        </article>
-      </div>
-    </section>
-
-    <section class="section container roadmap-section" id="roadmap">
-      <p class="section-kicker">Roadmap</p>
-      <h2>Etapas naturais para a The Eleventh Labs crescer bem</h2>
-      <div class="roadmap-grid">
-        <article class="roadmap-item reveal-target">
-          <span class="roadmap-step">01</span>
-          <h3>Base e direcao</h3>
-          <p>Fechar linguagem, visual, proposta e sensacao geral do projeto sem pressa de publicar cedo demais.</p>
-        </article>
-        <article class="roadmap-item reveal-target">
-          <span class="roadmap-step">02</span>
-          <h3>Acesso antecipado</h3>
-          <p>Usar auth e lista de interesse para entender quem quer acompanhar o projeto desde o inicio.</p>
-        </article>
-        <article class="roadmap-item reveal-target">
-          <span class="roadmap-step">03</span>
-          <h3>Central e produto vivo</h3>
-          <p>Depois da base pronta, abrir espaco para dashboard, central, areas privadas e MVPs reais.</p>
         </article>
       </div>
     </section>
@@ -191,13 +179,13 @@
         <article class="auth-card reveal-target">
           <div class="auth-card-header">
             <div>
-              <p class="section-kicker">Auth</p>
-              <h2>Acesso antecipado com backend real funcionando</h2>
+              <p class="section-kicker" data-i18n="auth_kicker">Auth</p>
+              <h2 data-i18n="auth_title">Cadastro e login com backend real</h2>
             </div>
-            <button class="btn btn-secondary auth-inline-btn" type="button" data-auth-open>Abrir auth</button>
+            <button class="btn btn-secondary auth-inline-btn" type="button" data-auth-open data-i18n="auth_open">Abrir auth</button>
           </div>
 
-          <p class="section-sub auth-sub">O site agora usa a API real da The Abyss para registrar usuarios, fazer login, validar sessao e reenviar verificacao por email.</p>
+          <p class="section-sub auth-sub" data-i18n="auth_text">A camada de entrada ja usa a API da The Abyss para registrar usuario, autenticar sessao e reenviar verificacao por email.</p>
 
           <div class="auth-state-box">
             <strong id="authStateTitle">Auth real ativo</strong>
@@ -205,20 +193,19 @@
           </div>
 
           <div class="auth-actions-row">
-            <button class="btn btn-primary" type="button" data-auth-open>Criar conta</button>
-            <button id="logoutBtn" class="btn btn-secondary" type="button" disabled>Sair</button>
+            <button class="btn btn-primary" type="button" data-auth-open data-i18n="auth_create">Criar conta</button>
+            <button id="logoutBtn" class="btn btn-secondary" type="button" disabled data-i18n="auth_logout">Sair</button>
           </div>
         </article>
 
         <article class="auth-card auth-card-alt reveal-target">
-          <p class="section-kicker">Verificacao por email</p>
-          <h2>Fluxo real pronto para crescer</h2>
-          <p class="section-sub">A verificacao por email agora passa pela API propria da The Abyss, hospedada no Railway. Isso deixa o projeto pronto para evoluir sem depender de um provider externo na camada principal.</p>
+          <p class="section-kicker" data-i18n="security_kicker">Seguranca</p>
+          <h2 data-i18n="security_title">Uma entrada pronta para virar produto serio</h2>
           <ul class="bullet-list">
-            <li>Mesmo backend para cadastro, login e sessao.</li>
-            <li>JWT reaproveitavel nas proximas areas privadas.</li>
-            <li>Verificacao por email controlada pela propria stack.</li>
-            <li>Base melhor para escalar a central depois.</li>
+            <li data-i18n="security_item_1">Mesmo backend para cadastro, login e sessao.</li>
+            <li data-i18n="security_item_2">JWT reaproveitavel nas areas privadas.</li>
+            <li data-i18n="security_item_3">Sessao revalidada quando a pagina abre.</li>
+            <li data-i18n="security_item_4">Estrutura pronta para perfil, preferencias e recursos protegidos.</li>
           </ul>
         </article>
       </div>
@@ -227,17 +214,17 @@
     <section class="section container waitlist-section" id="interesse">
       <div class="waitlist-grid">
         <article class="waitlist-copy reveal-target">
-          <p class="section-kicker">Interesse</p>
-          <h2>Capturar quem quer acompanhar o projeto tambem faz parte da base</h2>
-          <p class="section-sub">Em vez de deixar a home so bonita, o site agora tambem pode registrar interesse localmente. Isso te ajuda a testar a experiencia de entrada antes de integrar um backend real.</p>
+          <p class="section-kicker" data-i18n="access_kicker">Acesso antecipado</p>
+          <h2 data-i18n="access_title">Enquanto o dashboard cresce, voce ja pode medir interesse</h2>
+          <p class="section-sub" data-i18n="access_text">A lista de interesse continua local por enquanto, mas ela ajuda a testar a linguagem da home e os gatilhos de entrada antes de ligar um fluxo real para leads.</p>
           <div class="waitlist-stats">
             <div class="waitlist-stat">
               <strong id="waitlistCount">0</strong>
-              <span>interesses salvos localmente</span>
+              <span data-i18n="access_stat_1">interesses salvos localmente</span>
             </div>
             <div class="waitlist-stat">
-              <strong id="authModeLabel">Local</strong>
-              <span>modo atual da autenticacao</span>
+              <strong id="authModeLabel">API</strong>
+              <span data-i18n="access_stat_2">camada atual de autenticacao</span>
             </div>
           </div>
         </article>
@@ -245,80 +232,90 @@
         <article class="waitlist-card reveal-target">
           <form id="waitlistForm" class="waitlist-form">
             <label>
-              <span>Nome</span>
+              <span data-i18n="form_name">Nome</span>
               <input id="waitlistName" name="name" type="text" placeholder="Seu nome" required />
             </label>
             <label>
-              <span>Email</span>
+              <span data-i18n="form_email">Email</span>
               <input id="waitlistEmail" name="email" type="email" placeholder="voce@exemplo.com" required />
             </label>
             <label>
-              <span>O que mais te interessa?</span>
+              <span data-i18n="form_interest">O que voce quer fazer primeiro?</span>
               <select id="waitlistInterest" name="interest">
-                <option value="Identidade e produto">Identidade e produto</option>
-                <option value="Acesso antecipado">Acesso antecipado</option>
-                <option value="Central futura">Central futura</option>
-                <option value="Projetos da The Abyss">Projetos da The Abyss</option>
+                <option value="Criar projeto" data-i18n="interest_1">Criar projeto</option>
+                <option value="Entrar no workspace" data-i18n="interest_2">Entrar no workspace</option>
+                <option value="Ver a central" data-i18n="interest_3">Ver a central</option>
+                <option value="Acompanhar o lancamento" data-i18n="interest_4">Acompanhar o lancamento</option>
               </select>
             </label>
-            <button class="btn btn-primary" type="submit">Salvar interesse</button>
+            <button class="btn btn-primary" type="submit" data-i18n="form_submit">Salvar interesse</button>
           </form>
-          <div id="waitlistFeedback" class="waitlist-feedback">Nenhum interesse salvo ainda nesta sessao local.</div>
+          <div id="waitlistFeedback" class="waitlist-feedback" data-i18n="waitlist_empty">Nenhum interesse salvo ainda nesta sessao local.</div>
         </article>
       </div>
     </section>
 
     <section class="section container faq-section" id="faq">
       <p class="section-kicker">FAQ</p>
-      <h2>Perguntas que fazem sentido antes da central existir</h2>
+      <h2 data-i18n="faq_title">Perguntas que o usuario pode fazer antes de entrar</h2>
       <div class="faq-grid">
         <details class="faq-item reveal-target">
-          <summary>Esse site ja representa o projeto final?</summary>
-          <p>Nao. Ele representa uma base profissional para o projeto crescer direito, sem a pressa de publicar algo mal resolvido.</p>
+          <summary data-i18n="faq_q1">Eu ja consigo entrar hoje?</summary>
+          <p data-i18n="faq_a1">Sim. A home ja conversa com a API real para cadastro, login, sessao e reenvio de verificacao.</p>
         </details>
         <details class="faq-item reveal-target">
-          <summary>O auth ja funciona agora?</summary>
-          <p>Sim. Cadastro, login, sessao e reenvio de verificacao ja usam a API real hospedada no Railway.</p>
+          <summary data-i18n="faq_q2">Depois do login eu vou para onde?</summary>
+          <p data-i18n="faq_a2">Para a central, que ja reconhece a sessao atual e esta pronta para evoluir para projetos, perfil e configuracoes.</p>
         </details>
         <details class="faq-item reveal-target">
-          <summary>Vale subir isso agora para GitHub?</summary>
-          <p>So quando a base estiver do jeito certo para voce. No momento, testar localmente ainda e a melhor estrategia.</p>
+          <summary data-i18n="faq_q3">A home ja esta final?</summary>
+          <p data-i18n="faq_a3">Nao. Ela ja esta forte o suficiente para funcionar agora, mas ainda pode evoluir junto com o produto.</p>
         </details>
       </div>
     </section>
   </main>
 
   <footer>
-    <span>The Eleventh Labs - projeto em evolucao da The Abyss.</span>
+    <div class="container footer-shell">
+      <div>
+        <strong>The Eleventh Labs</strong>
+        <span data-i18n="footer_text">A premium launch layer by The Abyss for project-driven products.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a href="#auth" data-i18n="nav_auth">Auth</a>
+        <a href="central.html" data-i18n="nav_central">Central</a>
+      </div>
+    </div>
   </footer>
 
   <div id="authModal" class="modal" aria-hidden="true">
     <div class="modal-backdrop" data-auth-close></div>
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
       <button class="modal-close" type="button" aria-label="Fechar" data-auth-close>×</button>
-      <p class="section-kicker">Acesso</p>
-      <h2 id="authModalTitle">Cadastro e login</h2>
-      <p class="modal-subtitle">Este fluxo ja usa a API real da The Abyss. Depois do cadastro, a verificacao por email continua no backend hospedado no Railway.</p>
+      <p class="section-kicker" data-i18n="modal_kicker">Acesso</p>
+      <h2 id="authModalTitle" data-i18n="modal_title">Cadastro e login</h2>
+      <p class="modal-subtitle" data-i18n="modal_subtitle">Este fluxo ja usa a API real da The Abyss. Depois do cadastro, a verificacao por email continua no backend hospedado no Railway.</p>
 
       <form id="authForm" class="auth-form">
         <label>
-          <span>Email</span>
+          <span data-i18n="form_email">Email</span>
           <input id="emailInput" name="email" type="email" placeholder="voce@exemplo.com" required />
         </label>
         <label>
-          <span>Senha</span>
+          <span data-i18n="modal_password">Senha</span>
           <input id="passwordInput" name="password" type="password" placeholder="Minimo de 6 caracteres" minlength="6" required />
         </label>
         <div class="form-actions">
-          <button id="registerBtn" class="btn btn-primary" type="submit">Criar conta</button>
-          <button id="loginBtn" class="btn btn-secondary" type="button">Entrar</button>
+          <button id="registerBtn" class="btn btn-primary" type="submit" data-i18n="modal_register">Criar conta</button>
+          <button id="loginBtn" class="btn btn-secondary" type="button" data-i18n="modal_login">Entrar</button>
         </div>
         <div class="form-actions form-actions-secondary">
-          <button id="verifyBtn" class="btn btn-secondary" type="button" disabled>Verificar email</button>
+          <button id="verifyBtn" class="btn btn-secondary" type="button" disabled data-i18n="modal_verify">Reenviar verificacao</button>
         </div>
       </form>
 
-      <div id="authFeedback" class="auth-feedback">Preencha seu email e senha para testar o fluxo.</div>
+      <div id="authFeedback" class="auth-feedback" data-i18n="modal_feedback">Preencha seu email e senha para testar o fluxo.</div>
     </div>
   </div>
 
