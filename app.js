@@ -451,7 +451,7 @@ async function handleRegister(event) {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || "Erro ao criar conta.");
-    setFeedback(dom.authFeedback, t("register_success"), "success");
+    setFeedback(dom.authFeedback, data.message || t("register_success"), "success");
   } catch (error) {
     setFeedback(dom.authFeedback, t("register_error", { message: error.message }), "error");
   }
@@ -499,7 +499,7 @@ async function handleVerify() {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || "Erro ao reenviar.");
-    setFeedback(dom.authFeedback, t("verify_success"), "success");
+    setFeedback(dom.authFeedback, data.message || t("verify_success"), "success");
   } catch (error) {
     setFeedback(dom.authFeedback, t("verify_error", { message: error.message }), "error");
   }
