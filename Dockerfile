@@ -1,13 +1,12 @@
-FROM nginx:alpine
+FROM python:3.12-slim
 
-# Remove a página padrão do Nginx
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /app
 
-# Copia os arquivos do site para o diretório do Nginx
-COPY . /usr/share/nginx/html
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expõe a porta padrão do Nginx
-EXPOSE 80
+COPY . .
 
-# Comando padrão do Nginx
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8080
+
+CMD ["python", "server.py"]
