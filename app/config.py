@@ -13,6 +13,12 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+asyncpg://user:password@localhost:5432/authdb"
     frontend_base_url: str = "http://localhost:5500"
+    public_api_base_url: str = "http://localhost:8000"
+
+    email_provider: str = "auto"
+
+    resend_api_key: str | None = None
+    resend_from_email: str | None = None
 
     smtp_host: str | None = None
     smtp_port: int = 587
@@ -41,6 +47,14 @@ class Settings(BaseSettings):
         # Gmail app password is often copied with spaces (xxxx xxxx xxxx xxxx).
         # Normalize so both formats work.
         return v.replace(" ", "").strip() or None
+
+    @field_validator("email_provider", mode="before")
+    @classmethod
+    def normalize_email_provider(cls, v: str | None) -> str:
+        provider = (v or "auto").strip().lower()
+        if provider not in {"auto", "smtp", "resend"}:
+            return "auto"
+        return provider
 
 
 settings = Settings()

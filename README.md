@@ -50,7 +50,22 @@ http://127.0.0.1:8001/docs
 
 ## Email verification behavior
 
-- If SMTP is configured in `.env`, verification email is sent.
-- If SMTP is not configured, verification link is printed in backend logs.
+- Provider can be configured with `EMAIL_PROVIDER=auto|resend|smtp`.
+- `auto` tries Resend first (HTTPS), then SMTP fallback.
+- If no provider succeeds, verification link is printed in backend logs.
 
 This fallback is useful while developing locally.
+
+## Railway production variables
+
+Set at least these values in Railway:
+
+- `PUBLIC_API_BASE_URL=https://theabyssauth.up.railway.app`
+- `FRONTEND_BASE_URL=https://theelevenlabs.up.railway.app`
+- `EMAIL_PROVIDER=resend`
+- `RESEND_API_KEY=...`
+- `RESEND_FROM_EMAIL=...`
+
+Optional SMTP fallback values:
+
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_FROM_EMAIL`, `SMTP_USE_TLS`

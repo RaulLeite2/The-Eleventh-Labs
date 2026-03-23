@@ -46,10 +46,10 @@ async def register(payload: RegisterRequest, db: AsyncSession = Depends(get_db))
     db.add(user)
     await db.commit()
 
-    verify_url = f"{settings.frontend_base_url}/verify-email?token={token}"
-    sent = send_verification_email(user.email, verify_url)
+    verify_url = f"{settings.public_api_base_url}/auth/verify-email?token={token}"
+    sent, channel = send_verification_email(user.email, verify_url)
 
-    mode = "email sent" if sent else "email not sent (fallback ativo; confira SMTP/logs)"
+    mode = f"email sent via {channel}" if sent else f"email not sent (fallback ativo; motivo: {channel})"
     return MessageResponse(message=f"User created. Verification pending ({mode}).")
 
 
@@ -82,9 +82,9 @@ async def resend_verification(payload: ResendVerificationRequest, db: AsyncSessi
     user.verification_sent_at = datetime.utcnow()
     await db.commit()
 
-    verify_url = f"{settings.frontend_base_url}/verify-email?token={token}"
-    sent = send_verification_email(user.email, verify_url)
-    mode = "email sent" if sent else "email not sent (fallback ativo; confira SMTP/logs)"
+    verify_url = f"{settings.public_api_base_url}/auth/verify-email?token={token}"
+    sent, channel = send_verification_email(user.email, verify_url)
+    mode = f"email sent via {channel}" if sent else f"email not sent (fallback ativo; motivo: {channel})"
     return MessageResponse(message=f"Verification resent ({mode}).")
 
 
