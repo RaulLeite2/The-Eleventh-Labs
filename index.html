@@ -64,7 +64,7 @@
             </article>
             <article class="hero-metric">
               <strong>Auth preparado</strong>
-              <span>Cadastro, login e verificacao prontos para testes locais e plugar Firebase depois.</span>
+              <span>Cadastro, login e verificacao conectados a API real da The Abyss no Railway.</span>
             </article>
             <article class="hero-metric">
               <strong>Direcao clara</strong>
@@ -76,7 +76,7 @@
         <aside class="hero-panel reveal-target">
           <div class="panel-status-row">
             <span class="panel-chip">Status</span>
-            <span id="authStatusBadge" class="panel-chip panel-chip-soft">Modo local</span>
+            <span id="authStatusBadge" class="panel-chip panel-chip-soft">API ativa</span>
           </div>
 
           <h2>Estado atual do projeto</h2>
@@ -88,7 +88,7 @@
 
           <div class="mini-console">
             <span class="mini-console-label">base pronta</span>
-            <code>landing + auth local + firebase ready + deploy futuro</code>
+            <code>landing + auth API + central v1 + deploy ativo</code>
           </div>
 
           <div class="panel-divider"></div>
@@ -153,12 +153,12 @@
         <article class="showcase-card showcase-card-alt reveal-target">
           <p class="section-kicker">Execucao</p>
           <h2>Do local para producao sem reescrever tudo</h2>
-          <p>O fluxo esta montado para voce testar localmente agora, validar o feeling do projeto e depois conectar Firebase e deploy com o minimo de retrabalho.</p>
+          <p>O fluxo principal ja fala com a API real no Railway, mantendo a evolucao simples para as proximas areas privadas sem reescrever a base do projeto.</p>
           <ol class="ordered-notes">
-            <li>Lapidar a experiencia local.</li>
-            <li>Ativar Firebase Auth para verificacao real por email.</li>
-            <li>Subir para GitHub quando o projeto estiver do jeito certo.</li>
-            <li>Fazer deploy quando fizer sentido abrir.</li>
+            <li>Lapidar a experiencia da landing e da central.</li>
+            <li>Usar a API da The Abyss para cadastro, login e verificacao.</li>
+            <li>Conectar as proximas areas privadas ao mesmo token JWT.</li>
+            <li>Expandir a central conforme o produto ganhar forma.</li>
           </ol>
         </article>
       </div>
@@ -192,16 +192,16 @@
           <div class="auth-card-header">
             <div>
               <p class="section-kicker">Auth</p>
-              <h2>Acesso antecipado com modo local funcionando</h2>
+              <h2>Acesso antecipado com backend real funcionando</h2>
             </div>
             <button class="btn btn-secondary auth-inline-btn" type="button" data-auth-open>Abrir auth</button>
           </div>
 
-          <p class="section-sub auth-sub">Sem Firebase configurado, o site usa um modo local de teste para registrar e entrar com usuarios no navegador. Quando voce quiser validacao real por email, e so plugar as chaves do Firebase.</p>
+          <p class="section-sub auth-sub">O site agora usa a API real da The Abyss para registrar usuarios, fazer login, validar sessao e reenviar verificacao por email.</p>
 
           <div class="auth-state-box">
-            <strong id="authStateTitle">Modo local ativo</strong>
-            <p id="authStateText">Voce ja consegue testar cadastro, login, sessao e status de verificacao localmente sem backend.</p>
+            <strong id="authStateTitle">Auth real ativo</strong>
+            <p id="authStateText">Voce ja consegue testar cadastro, login, sessao e verificacao com o backend em producao.</p>
           </div>
 
           <div class="auth-actions-row">
@@ -212,13 +212,13 @@
 
         <article class="auth-card auth-card-alt reveal-target">
           <p class="section-kicker">Verificacao por email</p>
-          <h2>Sistema gratis que vale a pena usar</h2>
-          <p class="section-sub">Para verificacao por email sem pagar agora, o melhor caminho aqui e <strong>Firebase Authentication</strong> no plano Spark. Ele resolve email e senha, envio de verificacao, sessao e funciona bem com site estatico.</p>
+          <h2>Fluxo real pronto para crescer</h2>
+          <p class="section-sub">A verificacao por email agora passa pela API propria da The Abyss, hospedada no Railway. Isso deixa o projeto pronto para evoluir sem depender de um provider externo na camada principal.</p>
           <ul class="bullet-list">
-            <li>Gratis para comecar.</li>
-            <li>Bom para localhost e deploy simples.</li>
-            <li>Resolve verificacao real por email sem backend proprio.</li>
-            <li>Pode continuar servindo quando o projeto crescer.</li>
+            <li>Mesmo backend para cadastro, login e sessao.</li>
+            <li>JWT reaproveitavel nas proximas areas privadas.</li>
+            <li>Verificacao por email controlada pela propria stack.</li>
+            <li>Base melhor para escalar a central depois.</li>
           </ul>
         </article>
       </div>
@@ -278,7 +278,7 @@
         </details>
         <details class="faq-item reveal-target">
           <summary>O auth ja funciona agora?</summary>
-          <p>Sim, em modo local para teste dentro do navegador. Para verificacao real por email, a recomendacao e usar Firebase Auth.</p>
+          <p>Sim. Cadastro, login, sessao e reenvio de verificacao ja usam a API real hospedada no Railway.</p>
         </details>
         <details class="faq-item reveal-target">
           <summary>Vale subir isso agora para GitHub?</summary>
@@ -298,7 +298,7 @@
       <button class="modal-close" type="button" aria-label="Fechar" data-auth-close>×</button>
       <p class="section-kicker">Acesso</p>
       <h2 id="authModalTitle">Cadastro e login</h2>
-      <p class="modal-subtitle">Em modo local, o site salva usuarios no navegador para voce testar a experiencia. Com Firebase configurado, o mesmo fluxo passa a usar verificacao real por email.</p>
+      <p class="modal-subtitle">Este fluxo ja usa a API real da The Abyss. Depois do cadastro, a verificacao por email continua no backend hospedado no Railway.</p>
 
       <form id="authForm" class="auth-form">
         <label>

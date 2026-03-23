@@ -11,7 +11,7 @@ const storageKeys = {
 const defaultBacklog = [
   { id: 1, label: "Fechar direcao visual da central", done: true },
   { id: 2, label: "Definir primeira area privada real", done: false },
-  { id: 3, label: "Conectar verificacao por email no Firebase", done: false },
+  { id: 3, label: "Conectar verificacao por email na API da The Abyss", done: false },
   { id: 4, label: "Preparar deploy quando o fluxo estiver validado", done: false }
 ];
 
