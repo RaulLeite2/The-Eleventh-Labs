@@ -1,37 +1,13 @@
-# Etapa 1: build de dependências
-FROM python:3.12-slim AS builder
+FROM nginx:alpine
 
-WORKDIR /app
+# Remove a página padrão do Nginx
+RUN rm -rf /usr/share/nginx/html/*
 
-# Instale dependências do sistema necessárias para build de pacotes Python
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc libpq-dev && \
-    rm -rf /var/lib/apt/lists/*
+# Copia os arquivos do site para o diretório do Nginx
+COPY . /usr/share/nginx/html
 
-# Copie apenas requirements para aproveitar cache
-COPY requirements.txt .
+# Expõe a porta padrão do Nginx
+EXPOSE 80
 
-# Instale dependências em uma pasta separada
-RUN pip install --user --no-cache-dir -r requirements.txt
-
-# Etapa 2: imagem final enxuta
-FROM python:3.12-slim
-
-WORKDIR /app
-
-# Instale dependências do sistema necessárias para runtime
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libpq-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-# Copie dependências instaladas do builder
-COPY --from=builder /root/.local /root/.local
-
-# Adicione o diretório de pacotes ao PATH
-ENV PATH=/root/.local/bin:$PATH
-
-# Copie o restante do código
-COPY . .
-
-# Use Uvicorn para FastAPI (ajuste se usar Gunicorn)
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
+# Comando padrão do Nginx
+CMD ["nginx", "-g", "daemon off;"]
